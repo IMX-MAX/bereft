@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { account } from '@/lib/appwrite';
 import { ID } from 'appwrite';
@@ -9,7 +9,7 @@ const imgEllipse1 = "http://localhost:3845/assets/d77b2d8e03d02d007a93aeef2aa48b
 const imgFrame = "http://localhost:3845/assets/5374cbe708a4f89048554ba88bece69653180eae.svg";
 const imgFrame1 = "http://localhost:3845/assets/6ed3fb838cb3896e675ae11fdb51ae469b0d0d5a.svg";
 
-export default function Login() {
+function LoginContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const initialMode = searchParams?.get('mode') === 'signup' ? 'signup' : 'login';
@@ -180,5 +180,13 @@ export default function Login() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function Login() {
+  return (
+    <Suspense fallback={<div className="bg-[var(--color\/canvas,#242423)] relative min-h-screen w-full" />}>
+      <LoginContent />
+    </Suspense>
   );
 }
