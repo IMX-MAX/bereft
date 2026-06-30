@@ -1,0 +1,135 @@
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: var(--spacing-xl);
+}
+
+.greeting {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-primary);
+}
+
+.actionChips {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: 40px;
+}
+
+.chip {
+  background-color: var(--bg-hover);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 10px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.chip:hover {
+  background-color: var(--bg-active);
+  color: var(--text-primary);
+}
+
+.inputWrapper {
+  width: 100%;
+  max-width: 680px;
+  margin-bottom: var(--spacing-xl);
+}
+
+.chatInputBox {
+  background-color: #262626;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+}
+
+.chatInput {
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 15px;
+  width: 100%;
+  resize: none;
+  outline: none;
+}
+
+.chatInput::placeholder {
+  color: var(--text-muted);
+}
+
+.inputActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.leftActions {
+  display: flex;
+  gap: 12px;
+  color: var(--text-secondary);
+}
+
+.actionIcon {
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.actionIcon:hover {
+  color: var(--text-primary);
+}
+
+.rightActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.agentSelector {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.agentSelector:hover {
+  color: var(--text-primary);
+}
+
+.micIcon {
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.micIcon:hover {
+  color: var(--text-primary);
+}
+
+.threadsSection {
+  width: 100%;
+  max-width: 680px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.threadsTitle {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.threadsStatus {
+  color: var(--text-secondary);
+  font-size: 13px;
+}

@@ -1,0 +1,334 @@
+.addMcpContainer {
+  height: 100%;
+  overflow-y: auto;
+  position: relative;
+}
+
+.topBar {
+  padding: var(--spacing-lg) var(--spacing-xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.breadcrumb a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.breadcrumb a:hover {
+  color: var(--text-primary);
+}
+
+.iconSmall {
+  width: 14px;
+  height: 14px;
+}
+
+.closeBtn {
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.closeBtn:hover {
+  color: var(--text-primary);
+}
+
+.pageContent {
+  padding: var(--spacing-xl);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-bottom: var(--spacing-xl);
+}
+
+.columns {
+  display: flex;
+  gap: var(--spacing-xl);
+  align-items: flex-start;
+}
+
+.configSection {
+  flex: 1;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+}
+
+.sectionTitle {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: var(--spacing-lg);
+}
+
+.formGroup {
+  margin-bottom: var(--spacing-lg);
+}
+
+.label {
+  display: block;
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.inputField {
+  width: 100%;
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 10px 12px;
+  border-radius: var(--border-radius-md);
+  font-size: 14px;
+  outline: none;
+}
+
+.inputField.url {
+  padding-left: 36px;
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #4ade80;
+}
+
+.toggleGroup {
+  display: flex;
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  padding: 4px;
+}
+
+.toggleBtn {
+  flex: 1;
+  text-align: center;
+  padding: 8px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+}
+
+.toggleBtn.active {
+  background-color: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.formActions {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-xl);
+}
+
+.btnTest {
+  flex: 1;
+  background-color: var(--bg-hover);
+  border: 1px solid var(--border-color);
+  padding: 12px;
+  border-radius: var(--border-radius-md);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.btnTest:hover {
+  background-color: var(--bg-active);
+}
+
+.btnConnect {
+  flex: 1;
+  background-color: var(--accent-yellow);
+  color: #111;
+  border: 1px solid var(--accent-yellow);
+  padding: 12px;
+  border-radius: var(--border-radius-md);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.btnConnect:hover {
+  background-color: var(--accent-yellow-hover);
+}
+
+.statusSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.statusCard {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+}
+
+.statusHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: var(--spacing-lg);
+}
+
+.checkIcon {
+  color: #4ade80;
+}
+
+.statusTitle {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.statusMeta {
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.serverInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--bg-hover);
+  padding: 12px;
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.serverIcon {
+  width: 24px;
+  height: 24px;
+  background-color: var(--text-secondary);
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #111;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.serverName {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.serverUrl {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.statsRow {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.statBadge {
+  background-color: var(--bg-hover);
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.statBadge span {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-right: 4px;
+}
+
+.toolsCard {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+}
+
+.toolsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.toolsTitle {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.toolsCount {
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.toolList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.toolItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+
+.toolName {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: monospace;
+  color: var(--text-primary);
+}
+
+.toolDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #4ade80;
+}
+
+.toolMeta {
+  color: var(--accent-yellow);
+  font-size: 11px;
+}
+
+.toolMeta.write {
+  color: var(--text-primary);
+}
+
+.moreTools {
+  color: var(--accent-yellow);
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 8px;
+}

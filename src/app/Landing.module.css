@@ -1,0 +1,29 @@
+.landingContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: var(--spacing-xl);
+  background-color: var(--bg-base);
+}
+
+.headline {
+  font-size: 68px;
+  font-weight: 400;
+  margin-bottom: var(--spacing-xl);
+  color: var(--text-primary);
+  text-align: center;
+  letter-spacing: -2.04px;
+  line-height: 1.1;
+  max-width: 800px;
+}
+
+.headlineAccent {
+  color: var(--accent-yellow);
+}
+
+.ctaContainer {
+  display: flex;
+  gap: var(--spacing-md);
+}

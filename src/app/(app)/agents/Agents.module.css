@@ -1,0 +1,223 @@
+.agentsContainer {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.topBar {
+  padding: var(--spacing-lg) var(--spacing-xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.breadcrumb a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.breadcrumb a:hover {
+  color: var(--text-primary);
+}
+
+.iconSmall {
+  width: 14px;
+  height: 14px;
+}
+
+.pageContent {
+  padding: 0 var(--spacing-xl) var(--spacing-xl);
+  max-width: 1000px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-bottom: var(--spacing-xl);
+}
+
+.tabsContainer {
+  background-color: var(--bg-hover);
+  padding: 6px;
+  border-radius: var(--border-radius-lg);
+  display: flex;
+  gap: 8px;
+  margin-bottom: var(--spacing-xl);
+}
+
+.tab {
+  padding: 6px 16px;
+  border-radius: var(--border-radius-md);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.tab.active {
+  background-color: var(--bg-active);
+  color: var(--text-primary);
+}
+
+.tab:hover:not(.active) {
+  color: var(--text-primary);
+}
+
+.agentsList {
+  display: flex;
+  flex-direction: column;
+}
+
+.agentCard {
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 0;
+  padding: var(--spacing-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: -1px; /* collapse borders */
+}
+
+.agentCard:first-child {
+  border-top-left-radius: var(--border-radius-lg);
+  border-top-right-radius: var(--border-radius-lg);
+}
+
+.agentCard:last-child {
+  border-bottom-left-radius: var(--border-radius-lg);
+  border-bottom-right-radius: var(--border-radius-lg);
+}
+
+/* Specific background for the first running agent to match design */
+.agentCard.running {
+  background-color: rgba(245, 213, 101, 0.03);
+  border-color: rgba(245, 213, 101, 0.2);
+  position: relative;
+  z-index: 1;
+}
+
+.agentInfo {
+  display: flex;
+  gap: var(--spacing-lg);
+  align-items: center;
+}
+
+.agentIcon {
+  width: 48px;
+  height: 48px;
+  background-color: var(--bg-hover);
+  border-radius: var(--border-radius-md);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-secondary);
+}
+
+.agentDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.agentName {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--text-primary);
+}
+
+.agentDesc {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.agentApps {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.agentMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.statusRow {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.statusBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 12px;
+  background-color: var(--bg-hover);
+}
+
+.statusBadge.running {
+  color: #4ade80;
+  background-color: rgba(74, 222, 128, 0.1);
+}
+
+.statusBadge.idle {
+  color: var(--text-secondary);
+}
+
+.statusBadge.scheduled {
+  color: var(--text-primary);
+}
+
+.statusBadge.draft {
+  color: var(--accent-yellow);
+  background-color: rgba(245, 213, 101, 0.1);
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.statusDot.running { background-color: #4ade80; }
+.statusDot.idle { background-color: var(--text-secondary); }
+
+.runMeta {
+  color: var(--text-muted);
+  font-size: 12px;
+  text-align: right;
+}
+
+.configureBtn {
+  background-color: var(--bg-hover);
+  border: 1px solid var(--border-color);
+  padding: 6px 12px;
+  border-radius: var(--border-radius-md);
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.configureBtn:hover {
+  background-color: var(--bg-active);
+}

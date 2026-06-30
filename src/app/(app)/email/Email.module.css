@@ -1,0 +1,154 @@
+.emailContainer {
+  padding: var(--spacing-xl);
+  height: 100%;
+  overflow-y: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-lg);
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+}
+
+.tabs {
+  display: flex;
+  gap: var(--spacing-lg);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 8px;
+}
+
+.tab {
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  position: relative;
+}
+
+.tab.active {
+  color: var(--text-primary);
+}
+
+.tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -9px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-yellow);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toggle {
+  width: 32px;
+  height: 20px;
+  background-color: var(--bg-active);
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+.toggleKnob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background-color: var(--text-secondary);
+  border-radius: 50%;
+}
+
+.newBtn {
+  background-color: #fff;
+  color: #000;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: var(--border-radius-md);
+  font-size: 13px;
+}
+
+.group {
+  margin-bottom: var(--spacing-lg);
+}
+
+.groupHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-muted);
+  font-size: 12px;
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: var(--spacing-sm);
+}
+
+.emailRow {
+  display: flex;
+  align-items: center;
+  padding: 12px 8px;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.emailRow:hover {
+  background-color: var(--bg-hover);
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 14px;
+  color: #fff;
+  margin-right: 16px;
+  flex-shrink: 0;
+}
+
+.emailContent {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.sender {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.subject {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.snippet {
+  color: var(--text-secondary);
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.date {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin-left: 16px;
+  flex-shrink: 0;
+}

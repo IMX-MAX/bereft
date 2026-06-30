@@ -1,0 +1,198 @@
+.settingsContainer {
+  display: flex;
+  height: 100%;
+}
+
+.secondarySidebar {
+  width: 240px;
+  border-right: 1px solid var(--border-color);
+  padding: var(--spacing-xl) var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.settingsTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0 12px;
+  margin-bottom: var(--spacing-sm);
+}
+
+.navItem {
+  padding: 8px 12px;
+  border-radius: var(--border-radius-md);
+  color: var(--text-secondary);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.navItem:hover {
+  background-color: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.navItem.active {
+  background-color: var(--bg-active);
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.contentArea {
+  flex-grow: 1;
+  padding: var(--spacing-xl) 40px;
+  overflow-y: auto;
+  max-width: 800px;
+}
+
+.pageTitle {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.pageSubtitle {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-bottom: var(--spacing-xl);
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+.sectionTitle {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+}
+
+.planHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-lg);
+}
+
+.planName {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.planPrice {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.planPrice span {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.usageSection {
+  margin-bottom: var(--spacing-lg);
+}
+
+.usageHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.usageValue {
+  font-weight: 600;
+}
+
+.progressBar {
+  height: 8px;
+  background-color: var(--bg-input);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background-color: var(--accent-yellow);
+  width: 51%;
+}
+
+.planActions {
+  display: flex;
+  gap: 12px;
+}
+
+.paymentRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cardIcon {
+  background-color: #fff;
+  color: #111;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.historyList {
+  display: flex;
+  flex-direction: column;
+}
+
+.historyItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md) 0;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 14px;
+}
+
+.historyItem:last-child {
+  border-bottom: none;
+}
+
+.historyDate {
+  color: var(--text-secondary);
+  width: 120px;
+}
+
+.historyDesc {
+  flex-grow: 1;
+}
+
+.historyAmount {
+  font-weight: 500;
+  width: 80px;
+  text-align: right;
+}
+
+.historyLink {
+  color: var(--accent-yellow);
+  font-size: 13px;
+  width: 80px;
+  text-align: right;
+}

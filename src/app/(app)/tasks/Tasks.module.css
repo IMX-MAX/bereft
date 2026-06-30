@@ -1,0 +1,17 @@
+/* Tasks page styles */
+.taskRow {
+  transition: background-color 0.15s ease;
+}
+
+.slidePanel {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.modalOverlay {
+  animation: fadeIn 0.15s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
