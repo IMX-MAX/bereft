@@ -1,5 +1,6 @@
 
 import Link from 'next/link';
+import { ChevronRight, Search, Plus, Play, Home, MessageSquare, Bot, Plug, Hash, Zap, Clock, CheckCircle2, Circle, MoreHorizontal, ArrowRight, CornerDownRight } from 'lucide-react';
 
 export default function LandingBereft() {
   return (
@@ -65,7 +66,7 @@ export default function LandingBereft() {
               Start for free
             </p>
             <div className="relative shrink-0 size-[18px]" data-node-id="42:31" data-name="Frame">
-              <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              <ArrowRight size={16} className="text-[#242423]" />
             </div>
           </Link>
           <div className="bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.12)] border-solid content-stretch flex items-center overflow-clip px-[28px] py-[16px] relative rounded-[14px] shrink-0" data-node-id="42:33" data-name="Frame">
@@ -100,29 +101,29 @@ export default function LandingBereft() {
                   bereft
                 </p>
                 <div className="relative shrink-0 size-[15px]" data-node-id="47:15" data-name="Frame">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                  <Play size={16} className="text-[#e8eddf]" />
                 </div>
                 <div className="flex-[1_0_0] h-[10px] min-w-px relative" data-node-id="47:17" data-name="Frame" />
                 <div className="relative shrink-0 size-[18px]" data-node-id="47:18" data-name="Frame">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                  <ChevronRight size={16} className="text-[#9fa8a2]" />
                 </div>
               </div>
               <div className="content-stretch flex gap-[10px] items-center overflow-clip p-[8px] relative rounded-[9px] shrink-0 w-full" data-node-id="47:21" data-name="Search">
                 <div className="relative shrink-0 size-[17px]" data-node-id="47:22" data-name="Frame">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                  <Search size={16} className="text-[#cfdbd5]" />
                 </div>
                 <p className="[word-break:break-word] font-['Geist:Regular'] font-normal leading-[normal] relative shrink-0 text-[14px] text-[color:var(--color\/text-secondary,#cfdbd5)] whitespace-nowrap" data-node-id="47:25">
                   Search
                 </p>
                 <div className="flex-[1_0_0] h-[10px] min-w-px relative" data-node-id="47:26" data-name="Frame" />
                 <div className="relative shrink-0 size-[17px]" data-node-id="47:27" data-name="Frame">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                  <ChevronRight size={16} className="text-[#9fa8a2]" />
                 </div>
               </div>
               <div className="h-[8px] relative shrink-0 w-full" data-node-id="47:29" data-name="Frame" />
               <div className="content-stretch flex gap-[11px] items-center overflow-clip p-[8px] relative rounded-[9px] shrink-0 w-full" data-node-id="47:30" data-name="Nav/Home">
                 <div className="relative shrink-0 size-[18px]" data-node-id="47:31" data-name="Frame">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                  <Home size={16} className="text-[#cfdbd5]" />
                 </div>
                 <p className="[word-break:break-word] font-['Geist:Regular'] font-normal leading-[normal] relative shrink-0 text-[14px] text-[color:var(--color\/text-secondary,#cfdbd5)] whitespace-nowrap" data-node-id="47:33">
                   Home
@@ -130,7 +131,7 @@ export default function LandingBereft() {
               </div>
               <div className="bg-[var(--color\/surface,#333533)] content-stretch flex gap-[11px] items-center overflow-clip p-[8px] relative rounded-[9px] shrink-0 w-full" data-node-id="47:34" data-name="Nav/Chats">
                 <div className="relative shrink-0 size-[18px]" data-node-id="47:35" data-name="Frame">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                  <MessageSquare size={16} className="text-[#e8eddf]" />
                 </div>
                 <p className="[word-break:break-word] font-['Geist:Medium'] font-medium leading-[normal] relative shrink-0 text-[14px] text-[color:var(--color\/text-primary,#e8eddf)] whitespace-nowrap" data-node-id="47:37">
                   Chats
@@ -138,7 +139,7 @@ export default function LandingBereft() {
               </div>
               <div className="content-stretch flex gap-[11px] items-center overflow-clip p-[8px] relative rounded-[9px] shrink-0 w-full" data-node-id="47:38" data-name="Nav/Agents">
                 <div className="relative shrink-0 size-[18px]" data-node-id="47:39" data-name="Frame">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                  <Bot size={16} className="text-[#cfdbd5]" />
                 </div>
                 <p className="[word-break:break-word] font-['Geist:Regular'] font-normal leading-[normal] relative shrink-0 text-[14px] text-[color:var(--color\/text-secondary,#cfdbd5)] whitespace-nowrap" data-node-id="47:41">
                   Agents
@@ -146,7 +147,7 @@ export default function LandingBereft() {
               </div>
               <div className="content-stretch flex gap-[11px] items-center overflow-clip p-[8px] relative rounded-[9px] shrink-0 w-full" data-node-id="47:42" data-name="Nav/Connections">
                 <div className="relative shrink-0 size-[18px]" data-node-id="47:43" data-name="Frame">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                  <Plug size={16} className="text-[#cfdbd5]" />
                 </div>
                 <p className="[word-break:break-word] font-['Geist:Regular'] font-normal leading-[normal] relative shrink-0 text-[14px] text-[color:var(--color\/text-secondary,#cfdbd5)] whitespace-nowrap" data-node-id="47:45">
                   Connections
@@ -157,16 +158,16 @@ export default function LandingBereft() {
                   Chats
                 </p>
                 <div className="relative shrink-0 size-[13px]" data-node-id="47:48" data-name="Frame">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                  <Plus size={14} className="text-[#9fa8a2]" />
                 </div>
                 <div className="flex-[1_0_0] h-[10px] min-w-px relative" data-node-id="47:50" data-name="Frame" />
                 <div className="relative shrink-0 size-[15px]" data-node-id="47:51" data-name="Frame">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                  <ChevronRight size={16} className="text-[#9fa8a2]" />
                 </div>
               </div>
               <div className="bg-[var(--color\/surface,#333533)] content-stretch flex gap-[10px] items-center overflow-clip p-[8px] relative rounded-[9px] shrink-0 w-full" data-node-id="47:53" data-name="Chat/Summarize unread Slack">
                 <div className="relative shrink-0 size-[16px]" data-node-id="47:54" data-name="Frame">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                  <Hash size={16} className="text-[#e8eddf]" />
                 </div>
                 <p className="[word-break:break-word] flex-[1_0_0] font-['Geist:Medium'] font-medium leading-[normal] min-w-px overflow-hidden relative text-[13.5px] text-[color:var(--color\/text-primary,#e8eddf)] text-ellipsis whitespace-nowrap" data-node-id="47:56">
                   Summarize unread Slack
@@ -175,7 +176,7 @@ export default function LandingBereft() {
               </div>
               <div className="content-stretch flex gap-[10px] items-center overflow-clip p-[8px] relative rounded-[9px] shrink-0 w-full" data-node-id="47:58" data-name="Chat/Inbox triage — today">
                 <div className="relative shrink-0 size-[16px]" data-node-id="47:59" data-name="Frame">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                  <Hash size={16} className="text-[#cfdbd5]" />
                 </div>
                 <p className="[word-break:break-word] flex-[1_0_0] font-['Geist:Regular'] font-normal leading-[normal] min-w-px overflow-hidden relative text-[13.5px] text-[color:var(--color\/text-secondary,#cfdbd5)] text-ellipsis whitespace-nowrap" data-node-id="47:61">
                   Inbox triage — today
@@ -187,7 +188,7 @@ export default function LandingBereft() {
               </div>
               <div className="content-stretch flex gap-[10px] items-center overflow-clip p-[8px] relative rounded-[9px] shrink-0 w-full" data-node-id="47:64" data-name="Chat/Deal flow tracker">
                 <div className="relative shrink-0 size-[16px]" data-node-id="47:65" data-name="Frame">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                  <Hash size={16} className="text-[#cfdbd5]" />
                 </div>
                 <p className="[word-break:break-word] flex-[1_0_0] font-['Geist:Regular'] font-normal leading-[normal] min-w-px overflow-hidden relative text-[13.5px] text-[color:var(--color\/text-secondary,#cfdbd5)] text-ellipsis whitespace-nowrap" data-node-id="47:67">
                   Deal flow tracker
@@ -199,7 +200,7 @@ export default function LandingBereft() {
               </div>
               <div className="content-stretch flex gap-[10px] items-center overflow-clip p-[8px] relative shrink-0 w-full" data-node-id="47:70" data-name="All chats">
                 <div className="relative shrink-0 size-[16px]" data-node-id="47:71" data-name="Frame">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                  <MessageSquare size={16} className="text-[#9fa8a2]" />
                 </div>
                 <p className="[word-break:break-word] font-['Geist:Regular'] font-normal leading-[normal] relative shrink-0 text-[13.5px] text-[color:var(--color\/text-tertiary,#9fa8a2)] whitespace-nowrap" data-node-id="47:75">
                   All chats
@@ -208,10 +209,10 @@ export default function LandingBereft() {
               <div className="flex-[1_0_0] min-h-px relative w-full" data-node-id="47:76" data-name="Spacer" />
               <div className="content-stretch flex gap-[9px] items-center overflow-clip pb-[6px] pt-[8px] px-[8px] relative shrink-0 w-full" data-node-id="47:77" data-name="Footer">
                 <div className="relative shrink-0 size-[17px]" data-node-id="47:78" data-name="Frame">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                  <ChevronRight size={16} className="text-[#9fa8a2]" />
                 </div>
                 <div className="relative shrink-0 size-[17px]" data-node-id="47:82" data-name="Frame">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                  <ChevronRight size={16} className="text-[#9fa8a2]" />
                 </div>
                 <p className="[word-break:break-word] font-['Geist:Regular'] font-normal leading-[normal] relative shrink-0 text-[13px] text-[color:var(--color\/text-tertiary,#9fa8a2)] whitespace-nowrap" data-node-id="47:84">{`Refer & earn`}</p>
               </div>
@@ -219,34 +220,34 @@ export default function LandingBereft() {
             <div className="bg-[var(--color\/canvas,#242423)] content-stretch flex flex-[1_0_0] flex-col h-full items-start min-w-px overflow-clip relative" data-node-id="47:85" data-name="Main">
               <div className="bg-[var(--color\/canvas,#242423)] border-[var(--color\/border,#40403e)] border-b border-solid content-stretch flex gap-[8px] items-center overflow-clip pl-[20px] pr-[18px] py-[12px] relative shrink-0 w-full" data-node-id="47:86" data-name="TopBar">
                 <div className="relative shrink-0 size-[16px]" data-node-id="47:87" data-name="Frame">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                  <Home size={16} className="text-[#cfdbd5]" />
                 </div>
                 <p className="[word-break:break-word] font-['Geist:Regular'] font-normal leading-[normal] relative shrink-0 text-[13.5px] text-[color:var(--color\/text-secondary,#cfdbd5)] whitespace-nowrap" data-node-id="47:89">
                   Home
                 </p>
                 <div className="relative shrink-0 size-[16px]" data-node-id="47:90" data-name="Frame">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                  <ChevronRight size={16} className="text-[#9fa8a2]" />
                 </div>
                 <div className="relative shrink-0 size-[16px]" data-node-id="47:92" data-name="Frame">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                  <ChevronRight size={16} className="text-[#9fa8a2]" />
                 </div>
                 <p className="[word-break:break-word] font-['Geist:Medium'] font-medium leading-[normal] relative shrink-0 text-[13.5px] text-[color:var(--color\/text-primary,#e8eddf)] whitespace-nowrap" data-node-id="47:94">
                   Summarize unread Slack
                 </p>
                 <div className="relative shrink-0 size-[16px]" data-node-id="47:95" data-name="Frame">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                  <ChevronRight size={16} className="text-[#9fa8a2]" />
                 </div>
                 <div className="flex-[1_0_0] h-[10px] min-w-px relative" data-node-id="47:97" data-name="Frame" />
                 <div className="bg-[var(--color\/surface,#333533)] border border-[var(--color\/border-strong,#4d4f4b)] border-solid content-stretch flex gap-[7px] items-center overflow-clip pl-[11px] pr-[13px] py-[7px] relative rounded-[9px] shrink-0" data-node-id="47:98" data-name="New">
                   <div className="relative shrink-0 size-[15px]" data-node-id="47:99" data-name="Frame">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                    <Plus size={14} className="text-[#e8eddf]" />
                   </div>
                   <p className="[word-break:break-word] font-['Geist:Medium'] font-medium leading-[normal] relative shrink-0 text-[13.5px] text-[color:var(--color\/text-primary,#e8eddf)] whitespace-nowrap" data-node-id="47:101">
                     New
                   </p>
                 </div>
                 <div className="relative shrink-0 size-[18px]" data-node-id="47:102" data-name="Frame">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                  <ChevronRight size={16} className="text-[#9fa8a2]" />
                 </div>
               </div>
               <div className="content-stretch flex flex-[1_0_0] flex-col items-start min-h-px overflow-clip relative w-full" data-node-id="47:106" data-name="Body">
@@ -262,13 +263,13 @@ export default function LandingBereft() {
                     <div className="content-stretch flex flex-col gap-[16px] items-start overflow-clip relative shrink-0 w-full" data-node-id="47:112" data-name="AIMsg">
                       <div className="bg-[var(--color\/surface-2,#3d3f3b)] content-stretch flex gap-[6px] items-center overflow-clip pl-[10px] pr-[8px] py-[6px] relative rounded-[8px] shrink-0" data-node-id="47:113" data-name="Worked">
                         <div className="relative shrink-0 size-[13px]" data-node-id="47:114" data-name="Frame">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                          <ChevronRight size={16} className="text-[#9fa8a2]" />
                         </div>
                         <p className="[word-break:break-word] font-['Geist:Medium'] font-medium leading-[16px] relative shrink-0 text-[12.5px] text-[color:var(--color\/text-secondary,#cfdbd5)] whitespace-nowrap" data-node-id="47:116">
                           Worked across 3 apps · 12s
                         </p>
                         <div className="relative shrink-0 size-[14px]" data-node-id="47:117" data-name="Frame">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                          <ChevronRight size={16} className="text-[#9fa8a2]" />
                         </div>
                       </div>
                       <p className="[word-break:break-word] font-['Geist:Regular'] font-normal leading-[25px] min-w-full relative shrink-0 text-[15px] text-[color:var(--color\/text-primary,#e8eddf)] w-[min-content]" data-node-id="47:119">
@@ -281,7 +282,7 @@ export default function LandingBereft() {
                       </div>
                       <div className="content-stretch flex gap-[10px] items-start overflow-clip relative shrink-0 w-full" data-node-id="47:122" data-name="Frame">
                         <div className="h-[24px] relative shrink-0 w-[5px]" data-node-id="47:123" data-name="Frame">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                          <ChevronRight size={16} className="text-[#9fa8a2]" />
                         </div>
                         <p className="[word-break:break-word] flex-[1_0_0] font-['Geist:Regular'] font-normal leading-[0] min-w-px relative text-[15px] text-[color:var(--color\/text-secondary,#cfdbd5)]" data-node-id="47:125">
                           <span className="font-['Geist:SemiBold'] font-semibold leading-[24px] text-[#e8eddf]">{`Slack — `}</span>
@@ -290,7 +291,7 @@ export default function LandingBereft() {
                       </div>
                       <div className="content-stretch flex gap-[10px] items-start overflow-clip relative shrink-0 w-full" data-node-id="47:126" data-name="Frame">
                         <div className="h-[24px] relative shrink-0 w-[5px]" data-node-id="47:127" data-name="Frame">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                          <ChevronRight size={16} className="text-[#9fa8a2]" />
                         </div>
                         <p className="[word-break:break-word] flex-[1_0_0] font-['Geist:Regular'] font-normal leading-[0] min-w-px relative text-[15px] text-[color:var(--color\/text-secondary,#cfdbd5)]" data-node-id="47:129">
                           <span className="font-['Geist:SemiBold'] font-semibold leading-[24px] text-[#e8eddf]">{`Gmail — `}</span>
@@ -299,7 +300,7 @@ export default function LandingBereft() {
                       </div>
                       <div className="content-stretch flex gap-[10px] items-start overflow-clip relative shrink-0 w-full" data-node-id="47:130" data-name="Frame">
                         <div className="h-[24px] relative shrink-0 w-[5px]" data-node-id="47:131" data-name="Frame">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                          <ChevronRight size={16} className="text-[#9fa8a2]" />
                         </div>
                         <p className="[word-break:break-word] flex-[1_0_0] font-['Geist:Regular'] font-normal leading-[0] min-w-px relative text-[15px] text-[color:var(--color\/text-secondary,#cfdbd5)]" data-node-id="47:133">
                           <span className="font-['Geist:SemiBold'] font-semibold leading-[24px] text-[#e8eddf]">{`Notion — `}</span>
@@ -351,12 +352,12 @@ export default function LandingBereft() {
                     <div className="content-stretch flex gap-[4px] items-center overflow-clip relative shrink-0 w-full" data-node-id="47:149" data-name="Frame">
                       <div className="content-stretch flex h-[30px] items-center justify-center overflow-clip relative rounded-[9px] shrink-0" data-node-id="47:150" data-name="Frame">
                         <div className="relative shrink-0 size-[18px]" data-node-id="47:151" data-name="Frame">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                          <ChevronRight size={16} className="text-[#9fa8a2]" />
                         </div>
                       </div>
                       <div className="content-stretch flex h-[30px] items-center justify-center overflow-clip relative rounded-[9px] shrink-0" data-node-id="47:153" data-name="Frame">
                         <div className="relative shrink-0 size-[18px]" data-node-id="47:154" data-name="Frame">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                          <ChevronRight size={16} className="text-[#9fa8a2]" />
                         </div>
                       </div>
                       <div className="flex-[1_0_0] h-[10px] min-w-px relative" data-node-id="47:157" data-name="Frame" />
@@ -365,12 +366,12 @@ export default function LandingBereft() {
                           Agent · Pro
                         </p>
                         <div className="relative shrink-0 size-[14px]" data-node-id="47:160" data-name="Frame">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                          <ChevronRight size={16} className="text-[#9fa8a2]" />
                         </div>
                       </div>
                       <div className="content-stretch flex h-[30px] items-center justify-center overflow-clip relative rounded-[9px] shrink-0" data-node-id="47:162" data-name="Frame">
                         <div className="relative shrink-0 size-[18px]" data-node-id="47:163" data-name="Frame">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                          <ChevronRight size={16} className="text-[#9fa8a2]" />
                         </div>
                       </div>
                     </div>
@@ -570,7 +571,7 @@ export default function LandingBereft() {
             Start for free
           </p>
           <div className="relative shrink-0 size-[18px]" data-node-id="41:4" data-name="Frame">
-            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            <ArrowRight size={16} className="text-[#242423]" />
           </div>
         </Link>
       </div>
