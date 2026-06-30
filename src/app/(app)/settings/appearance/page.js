@@ -89,7 +89,7 @@ export default function AppearanceSettingsPage() {
           <div className="flex bg-[var(--color\/surface,#333533)] border border-[var(--color\/border,#40403e)] rounded-[8px] p-[4px]">
             <button 
               onClick={() => setFont("sans")}
-              className={`flex-1 py-[8px] rounded-[6px] text-[13px] transition-colors ${font === 'sans' ? 'bg-[var(--color\/surface-2,#3d3f3b)] text-[#e8eddf] font-['Geist:Medium'] font-medium shadow-sm' : 'text-[#9fa8a2] hover:text-[#e8eddf]'}`}
+              className={`flex-1 py-[8px] rounded-[6px] text-[13px] transition-colors ${font === 'sans' ? "bg-[var(--color\/surface-2,#3d3f3b)] text-[#e8eddf] font-['Geist:Medium'] font-medium shadow-sm" : "text-[#9fa8a2] hover:text-[#e8eddf]"}`}
             >
               Sans Serif (Inter)
             </button>
@@ -108,13 +108,13 @@ export default function AppearanceSettingsPage() {
           <div className="flex bg-[var(--color\/surface,#333533)] border border-[var(--color\/border,#40403e)] rounded-[8px] p-[4px]">
             <button 
               onClick={() => setCorners("rounded")}
-              className={`flex-1 py-[8px] rounded-[6px] text-[13px] transition-colors ${corners === 'rounded' ? 'bg-[var(--color\/surface-2,#3d3f3b)] text-[#e8eddf] font-['Geist:Medium'] font-medium shadow-sm' : 'text-[#9fa8a2] hover:text-[#e8eddf]'}`}
+              className={`flex-1 py-[8px] rounded-[6px] text-[13px] transition-colors ${corners === 'rounded' ? "bg-[var(--color\/surface-2,#3d3f3b)] text-[#e8eddf] font-['Geist:Medium'] font-medium shadow-sm" : "text-[#9fa8a2] hover:text-[#e8eddf]"}`}
             >
               Rounded
             </button>
             <button 
               onClick={() => setCorners("sharp")}
-              className={`flex-1 py-[8px] rounded-[6px] text-[13px] transition-colors ${corners === 'sharp' ? 'bg-[var(--color\/surface-2,#3d3f3b)] text-[#e8eddf] font-['Geist:Medium'] font-medium shadow-sm' : 'text-[#9fa8a2] hover:text-[#e8eddf]'}`}
+              className={`flex-1 py-[8px] rounded-[6px] text-[13px] transition-colors ${corners === 'sharp' ? "bg-[var(--color\/surface-2,#3d3f3b)] text-[#e8eddf] font-['Geist:Medium'] font-medium shadow-sm" : "text-[#9fa8a2] hover:text-[#e8eddf]"}`}
             >
               Sharp
             </button>

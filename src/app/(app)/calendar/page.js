@@ -134,7 +134,7 @@ export default function CalendarPage() {
               {weekDays.map(day => (
                 <div key={day.name} className={`flex flex-col items-center justify-center py-[12px] border-r border-[var(--color\/border,#40403e)] last:border-r-0 ${day.isToday ? 'bg-[rgba(245,213,92,0.03)]' : ''}`}>
                   <span className={`text-[11px] font-['Geist:Medium'] font-medium uppercase tracking-wider ${day.isToday ? 'text-[#f5cb5c]' : 'text-[#9fa8a2]'}`}>{day.name}</span>
-                  <div className={`mt-[4px] w-[32px] h-[32px] flex items-center justify-center rounded-full text-[16px] font-['Geist:Regular'] font-normal ${day.isToday ? 'bg-[#f5cb5c] text-[#242423] font-['Geist:Medium']' : 'text-[#e8eddf]'}`}>
+                  <div className={`mt-[4px] w-[32px] h-[32px] flex items-center justify-center rounded-full text-[16px] font-['Geist:Regular'] font-normal ${day.isToday ? "bg-[#f5cb5c] text-[#242423] font-['Geist:Medium']" : "text-[#e8eddf]"}`}>
                     {day.date}
                   </div>
                 </div>
