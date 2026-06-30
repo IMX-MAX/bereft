@@ -3,11 +3,6 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
-const imgFrame16 = "http://localhost:3845/assets/40f45f62f634c781c14e4281e79938fbe416acfb.svg";
-const imgFrame17 = "http://localhost:3845/assets/bb792fcbf394a7210976543bdf8e02ae09761ba6.svg";
-const imgFrame18 = "http://localhost:3845/assets/cbe77ca6f6bd494131df9b3ed63664edf4016c14.svg";
-const imgFrame19 = "http://localhost:3845/assets/050fc3255920664ef35ef7dd5f3d0cf23bcf7f05.svg";
-const imgFrame20 = "http://localhost:3845/assets/e505d3038cdc90f87103ab3426cc9fc4bfc43f69.svg";
 
 // Harcoded Composio tools based on user's auth configs
 const composioApps = [

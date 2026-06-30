@@ -1,38 +1,3 @@
-const imgGlowTerracotta = "http://localhost:3845/assets/e13ac09e0af4d5ff5696f667aca70ff68b6b6e3e.svg";
-const imgGlowNavy = "http://localhost:3845/assets/d44d3d9aee8c549723eeb5f5eeb2659ecf5364f2.svg";
-const imgGlowTan = "http://localhost:3845/assets/81362fc4421b68c5608a5e13c807b8b665d876a1.svg";
-const imgFrame = "http://localhost:3845/assets/f05360e597aff56b1056d9539d122f4741f94ed6.svg";
-const imgEllipse = "http://localhost:3845/assets/024485102694d7d301b1cd769d690ae0ffca8ca0.svg";
-const imgEllipse1 = "http://localhost:3845/assets/fa838e7d1404291e1e88458cd28dc6fdcbedfc57.svg";
-const imgEllipse2 = "http://localhost:3845/assets/b6114a1eccb0d946f8e8682041ce01818a356924.svg";
-const imgFrame1 = "http://localhost:3845/assets/05c1742ac0be7d178b03e3e7858e49372d808851.svg";
-const imgFrame2 = "http://localhost:3845/assets/23088903bd2682fa3017918c8abcb7229f185854.svg";
-const imgFrame3 = "http://localhost:3845/assets/839f442848b40a5ccd711ad89ceaa2dc3036ec00.svg";
-const imgFrame4 = "http://localhost:3845/assets/5c02ff2ee1febe3e8b8b758ea51bf67e7c275ff9.svg";
-const imgFrame5 = "http://localhost:3845/assets/12e32d26a00ea25c9df9da66c58be656572f1d86.svg";
-const imgFrame6 = "http://localhost:3845/assets/b029d81484b06d1c94c8bf4669bcea1399b7fc78.svg";
-const imgFrame7 = "http://localhost:3845/assets/d46230c909292bc05325111eab24965be2a00c3f.svg";
-const imgFrame8 = "http://localhost:3845/assets/4291bd2c301358e9514c403dfe353d3ff1838b0d.svg";
-const imgFrame9 = "http://localhost:3845/assets/f3ee3a702fb97217af1ce2337e09ede3e5a91f28.svg";
-const imgFrame10 = "http://localhost:3845/assets/d3bfd419c48981a09c06a3af23dff2fd7fc84b56.svg";
-const imgFrame11 = "http://localhost:3845/assets/e0903296f1b7ad2f019bf082a5dae39d24997df5.svg";
-const imgFrame12 = "http://localhost:3845/assets/a3af0594fe2943e8ef775c85303420f2df1d8d6a.svg";
-const imgEllipse3 = "http://localhost:3845/assets/cf79c89ee3642c0d22da192cd2be1f8e95f1f818.svg";
-const imgFrame13 = "http://localhost:3845/assets/b4bd24f0b07616b78ad6a71349f61af37510fc85.svg";
-const imgFrame14 = "http://localhost:3845/assets/317b0440129f2faa14312e5d904bb72659a87b03.svg";
-const imgFrame15 = "http://localhost:3845/assets/2b260d0dab85d804860731497169677c3d5adf27.svg";
-const imgFrame16 = "http://localhost:3845/assets/40f45f62f634c781c14e4281e79938fbe416acfb.svg";
-const imgFrame17 = "http://localhost:3845/assets/bb792fcbf394a7210976543bdf8e02ae09761ba6.svg";
-const imgFrame18 = "http://localhost:3845/assets/76758eaef3205c7528d82b0a3bd009e8c3b2db91.svg";
-const imgFrame19 = "http://localhost:3845/assets/1a01fc4403ba1e8c4ce33f11d4a72c68c9343a9b.svg";
-const imgFrame20 = "http://localhost:3845/assets/9ac46f60c857ce54af63d91bf096ff1a203582e5.svg";
-const imgFrame21 = "http://localhost:3845/assets/e02900a3560d09b3be59b7826b4a88c88f08a0ee.svg";
-const imgFrame22 = "http://localhost:3845/assets/1a9ae7e6b526d92c0a3722610f131bb1ab88eef7.svg";
-const imgFrame23 = "http://localhost:3845/assets/1d862ef214b695b6d7cf5251b53224f2edaabcdd.svg";
-const imgFrame24 = "http://localhost:3845/assets/1a4f72c546faf6e125f88c5a94a57c3a10b7ddc3.svg";
-const imgFrame25 = "http://localhost:3845/assets/b3d2a4345a056faacd5ce570f7d40d1622c3dfbc.svg";
-const imgFrame26 = "http://localhost:3845/assets/503fa8f39c083b0858b803cf95ae8729f8ce2891.svg";
-const imgFrame27 = "http://localhost:3845/assets/981391686ef539cbe5669eda3111d88542f165ca.svg";
 
 import Link from 'next/link';
 
@@ -41,17 +6,17 @@ export default function LandingBereft() {
     <div className="bg-[#242423] content-stretch flex flex-col items-start relative min-h-screen w-full" data-node-id="42:2" data-name="Landing — bereft">
       <div className="absolute left-0 size-[520px] top-0" data-node-id="42:3" data-name="GlowTerracotta">
         <div className="absolute inset-[-23.08%]">
-          <img alt="" className="block max-w-none size-full" src={imgGlowTerracotta} />
+          <div className="w-full h-full rounded-full bg-[#e26a4f]/20 blur-[120px]" />
         </div>
       </div>
       <div className="absolute left-0 size-[640px] top-0" data-node-id="42:4" data-name="GlowNavy">
         <div className="absolute inset-[-18.75%]">
-          <img alt="" className="block max-w-none size-full" src={imgGlowNavy} />
+          <div className="w-full h-full rounded-full bg-[#3e5672]/20 blur-[120px]" />
         </div>
       </div>
       <div className="absolute left-[27px] size-[400px] top-0" data-node-id="42:5" data-name="GlowTan">
         <div className="absolute inset-[-30%]">
-          <img alt="" className="block max-w-none size-full" src={imgGlowTan} />
+          <div className="w-full h-full rounded-full bg-[#d2ab72]/20 blur-[120px]" />
         </div>
       </div>
       <div className="content-stretch flex flex-col items-center overflow-clip pb-[8px] pt-[28px] px-[48px] relative shrink-0 w-full" data-node-id="42:6" data-name="Nav">
@@ -100,7 +65,7 @@ export default function LandingBereft() {
               Start for free
             </p>
             <div className="relative shrink-0 size-[18px]" data-node-id="42:31" data-name="Frame">
-              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+              <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
             </div>
           </Link>
           <div className="bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.12)] border-solid content-stretch flex items-center overflow-clip px-[28px] py-[16px] relative rounded-[14px] shrink-0" data-node-id="42:33" data-name="Frame">
@@ -114,13 +79,13 @@ export default function LandingBereft() {
         <div className="bg-[#242423] border border-[rgba(255,255,255,0.1)] border-solid h-[640px] overflow-clip relative rounded-[16px] shadow-[0px_0px_60px_0px_rgba(245,203,92,0.12),0px_32px_80px_-16px_rgba(0,0,0,0.45)] shrink-0 w-[1200px]" data-node-id="47:3" data-name="Frame">
           <div className="absolute bg-[#242423] border-[rgba(255,255,255,0.06)] border-b border-solid content-stretch flex gap-[7px] h-[40px] items-center left-[-1px] overflow-clip pl-[16px] top-[-1px]" data-node-id="47:4" data-name="Frame">
             <div className="relative shrink-0 size-[10px]" data-node-id="47:5" data-name="Ellipse">
-              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse} />
+              <div className="w-full h-full rounded-full bg-[#40403e]" />
             </div>
             <div className="relative shrink-0 size-[10px]" data-node-id="47:6" data-name="Ellipse">
-              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse1} />
+              <div className="w-full h-full rounded-full bg-[#40403e]" />
             </div>
             <div className="relative shrink-0 size-[10px]" data-node-id="47:7" data-name="Ellipse">
-              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse2} />
+              <div className="w-full h-full rounded-full bg-[#40403e]" />
             </div>
             <div className="flex-[1_0_0] h-[10px] min-w-px relative" data-node-id="47:8" data-name="Frame" />
             <p className="[word-break:break-word] font-['Geist:Regular'] font-normal leading-[normal] relative shrink-0 text-[#9fa8a2] text-[11px] whitespace-nowrap" data-node-id="47:9">
@@ -135,29 +100,29 @@ export default function LandingBereft() {
                   bereft
                 </p>
                 <div className="relative shrink-0 size-[15px]" data-node-id="47:15" data-name="Frame">
-                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame1} />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                 </div>
                 <div className="flex-[1_0_0] h-[10px] min-w-px relative" data-node-id="47:17" data-name="Frame" />
                 <div className="relative shrink-0 size-[18px]" data-node-id="47:18" data-name="Frame">
-                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame2} />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                 </div>
               </div>
               <div className="content-stretch flex gap-[10px] items-center overflow-clip p-[8px] relative rounded-[9px] shrink-0 w-full" data-node-id="47:21" data-name="Search">
                 <div className="relative shrink-0 size-[17px]" data-node-id="47:22" data-name="Frame">
-                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame3} />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                 </div>
                 <p className="[word-break:break-word] font-['Geist:Regular'] font-normal leading-[normal] relative shrink-0 text-[14px] text-[color:var(--color\/text-secondary,#cfdbd5)] whitespace-nowrap" data-node-id="47:25">
                   Search
                 </p>
                 <div className="flex-[1_0_0] h-[10px] min-w-px relative" data-node-id="47:26" data-name="Frame" />
                 <div className="relative shrink-0 size-[17px]" data-node-id="47:27" data-name="Frame">
-                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame4} />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                 </div>
               </div>
               <div className="h-[8px] relative shrink-0 w-full" data-node-id="47:29" data-name="Frame" />
               <div className="content-stretch flex gap-[11px] items-center overflow-clip p-[8px] relative rounded-[9px] shrink-0 w-full" data-node-id="47:30" data-name="Nav/Home">
                 <div className="relative shrink-0 size-[18px]" data-node-id="47:31" data-name="Frame">
-                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame5} />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                 </div>
                 <p className="[word-break:break-word] font-['Geist:Regular'] font-normal leading-[normal] relative shrink-0 text-[14px] text-[color:var(--color\/text-secondary,#cfdbd5)] whitespace-nowrap" data-node-id="47:33">
                   Home
@@ -165,7 +130,7 @@ export default function LandingBereft() {
               </div>
               <div className="bg-[var(--color\/surface,#333533)] content-stretch flex gap-[11px] items-center overflow-clip p-[8px] relative rounded-[9px] shrink-0 w-full" data-node-id="47:34" data-name="Nav/Chats">
                 <div className="relative shrink-0 size-[18px]" data-node-id="47:35" data-name="Frame">
-                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame6} />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                 </div>
                 <p className="[word-break:break-word] font-['Geist:Medium'] font-medium leading-[normal] relative shrink-0 text-[14px] text-[color:var(--color\/text-primary,#e8eddf)] whitespace-nowrap" data-node-id="47:37">
                   Chats
@@ -173,7 +138,7 @@ export default function LandingBereft() {
               </div>
               <div className="content-stretch flex gap-[11px] items-center overflow-clip p-[8px] relative rounded-[9px] shrink-0 w-full" data-node-id="47:38" data-name="Nav/Agents">
                 <div className="relative shrink-0 size-[18px]" data-node-id="47:39" data-name="Frame">
-                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame7} />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                 </div>
                 <p className="[word-break:break-word] font-['Geist:Regular'] font-normal leading-[normal] relative shrink-0 text-[14px] text-[color:var(--color\/text-secondary,#cfdbd5)] whitespace-nowrap" data-node-id="47:41">
                   Agents
@@ -181,7 +146,7 @@ export default function LandingBereft() {
               </div>
               <div className="content-stretch flex gap-[11px] items-center overflow-clip p-[8px] relative rounded-[9px] shrink-0 w-full" data-node-id="47:42" data-name="Nav/Connections">
                 <div className="relative shrink-0 size-[18px]" data-node-id="47:43" data-name="Frame">
-                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame8} />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                 </div>
                 <p className="[word-break:break-word] font-['Geist:Regular'] font-normal leading-[normal] relative shrink-0 text-[14px] text-[color:var(--color\/text-secondary,#cfdbd5)] whitespace-nowrap" data-node-id="47:45">
                   Connections
@@ -192,16 +157,16 @@ export default function LandingBereft() {
                   Chats
                 </p>
                 <div className="relative shrink-0 size-[13px]" data-node-id="47:48" data-name="Frame">
-                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame9} />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                 </div>
                 <div className="flex-[1_0_0] h-[10px] min-w-px relative" data-node-id="47:50" data-name="Frame" />
                 <div className="relative shrink-0 size-[15px]" data-node-id="47:51" data-name="Frame">
-                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame10} />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                 </div>
               </div>
               <div className="bg-[var(--color\/surface,#333533)] content-stretch flex gap-[10px] items-center overflow-clip p-[8px] relative rounded-[9px] shrink-0 w-full" data-node-id="47:53" data-name="Chat/Summarize unread Slack">
                 <div className="relative shrink-0 size-[16px]" data-node-id="47:54" data-name="Frame">
-                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame11} />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                 </div>
                 <p className="[word-break:break-word] flex-[1_0_0] font-['Geist:Medium'] font-medium leading-[normal] min-w-px overflow-hidden relative text-[13.5px] text-[color:var(--color\/text-primary,#e8eddf)] text-ellipsis whitespace-nowrap" data-node-id="47:56">
                   Summarize unread Slack
@@ -210,31 +175,31 @@ export default function LandingBereft() {
               </div>
               <div className="content-stretch flex gap-[10px] items-center overflow-clip p-[8px] relative rounded-[9px] shrink-0 w-full" data-node-id="47:58" data-name="Chat/Inbox triage — today">
                 <div className="relative shrink-0 size-[16px]" data-node-id="47:59" data-name="Frame">
-                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame12} />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                 </div>
                 <p className="[word-break:break-word] flex-[1_0_0] font-['Geist:Regular'] font-normal leading-[normal] min-w-px overflow-hidden relative text-[13.5px] text-[color:var(--color\/text-secondary,#cfdbd5)] text-ellipsis whitespace-nowrap" data-node-id="47:61">
                   Inbox triage — today
                 </p>
                 <div className="relative shrink-0 size-[6px]" data-node-id="47:62" data-name="Frame" />
                 <div className="relative shrink-0 size-[6px]" data-node-id="47:63" data-name="Ellipse">
-                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse3} />
+                  <div className="w-full h-full rounded-full bg-[#40403e]" />
                 </div>
               </div>
               <div className="content-stretch flex gap-[10px] items-center overflow-clip p-[8px] relative rounded-[9px] shrink-0 w-full" data-node-id="47:64" data-name="Chat/Deal flow tracker">
                 <div className="relative shrink-0 size-[16px]" data-node-id="47:65" data-name="Frame">
-                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame12} />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                 </div>
                 <p className="[word-break:break-word] flex-[1_0_0] font-['Geist:Regular'] font-normal leading-[normal] min-w-px overflow-hidden relative text-[13.5px] text-[color:var(--color\/text-secondary,#cfdbd5)] text-ellipsis whitespace-nowrap" data-node-id="47:67">
                   Deal flow tracker
                 </p>
                 <div className="relative shrink-0 size-[6px]" data-node-id="47:68" data-name="Frame" />
                 <div className="relative shrink-0 size-[6px]" data-node-id="47:69" data-name="Ellipse">
-                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse3} />
+                  <div className="w-full h-full rounded-full bg-[#40403e]" />
                 </div>
               </div>
               <div className="content-stretch flex gap-[10px] items-center overflow-clip p-[8px] relative shrink-0 w-full" data-node-id="47:70" data-name="All chats">
                 <div className="relative shrink-0 size-[16px]" data-node-id="47:71" data-name="Frame">
-                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame13} />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                 </div>
                 <p className="[word-break:break-word] font-['Geist:Regular'] font-normal leading-[normal] relative shrink-0 text-[13.5px] text-[color:var(--color\/text-tertiary,#9fa8a2)] whitespace-nowrap" data-node-id="47:75">
                   All chats
@@ -243,10 +208,10 @@ export default function LandingBereft() {
               <div className="flex-[1_0_0] min-h-px relative w-full" data-node-id="47:76" data-name="Spacer" />
               <div className="content-stretch flex gap-[9px] items-center overflow-clip pb-[6px] pt-[8px] px-[8px] relative shrink-0 w-full" data-node-id="47:77" data-name="Footer">
                 <div className="relative shrink-0 size-[17px]" data-node-id="47:78" data-name="Frame">
-                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame14} />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                 </div>
                 <div className="relative shrink-0 size-[17px]" data-node-id="47:82" data-name="Frame">
-                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame15} />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                 </div>
                 <p className="[word-break:break-word] font-['Geist:Regular'] font-normal leading-[normal] relative shrink-0 text-[13px] text-[color:var(--color\/text-tertiary,#9fa8a2)] whitespace-nowrap" data-node-id="47:84">{`Refer & earn`}</p>
               </div>
@@ -254,34 +219,34 @@ export default function LandingBereft() {
             <div className="bg-[var(--color\/canvas,#242423)] content-stretch flex flex-[1_0_0] flex-col h-full items-start min-w-px overflow-clip relative" data-node-id="47:85" data-name="Main">
               <div className="bg-[var(--color\/canvas,#242423)] border-[var(--color\/border,#40403e)] border-b border-solid content-stretch flex gap-[8px] items-center overflow-clip pl-[20px] pr-[18px] py-[12px] relative shrink-0 w-full" data-node-id="47:86" data-name="TopBar">
                 <div className="relative shrink-0 size-[16px]" data-node-id="47:87" data-name="Frame">
-                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame16} />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                 </div>
                 <p className="[word-break:break-word] font-['Geist:Regular'] font-normal leading-[normal] relative shrink-0 text-[13.5px] text-[color:var(--color\/text-secondary,#cfdbd5)] whitespace-nowrap" data-node-id="47:89">
                   Home
                 </p>
                 <div className="relative shrink-0 size-[16px]" data-node-id="47:90" data-name="Frame">
-                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame17} />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                 </div>
                 <div className="relative shrink-0 size-[16px]" data-node-id="47:92" data-name="Frame">
-                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame18} />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                 </div>
                 <p className="[word-break:break-word] font-['Geist:Medium'] font-medium leading-[normal] relative shrink-0 text-[13.5px] text-[color:var(--color\/text-primary,#e8eddf)] whitespace-nowrap" data-node-id="47:94">
                   Summarize unread Slack
                 </p>
                 <div className="relative shrink-0 size-[16px]" data-node-id="47:95" data-name="Frame">
-                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame19} />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                 </div>
                 <div className="flex-[1_0_0] h-[10px] min-w-px relative" data-node-id="47:97" data-name="Frame" />
                 <div className="bg-[var(--color\/surface,#333533)] border border-[var(--color\/border-strong,#4d4f4b)] border-solid content-stretch flex gap-[7px] items-center overflow-clip pl-[11px] pr-[13px] py-[7px] relative rounded-[9px] shrink-0" data-node-id="47:98" data-name="New">
                   <div className="relative shrink-0 size-[15px]" data-node-id="47:99" data-name="Frame">
-                    <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame20} />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                   </div>
                   <p className="[word-break:break-word] font-['Geist:Medium'] font-medium leading-[normal] relative shrink-0 text-[13.5px] text-[color:var(--color\/text-primary,#e8eddf)] whitespace-nowrap" data-node-id="47:101">
                     New
                   </p>
                 </div>
                 <div className="relative shrink-0 size-[18px]" data-node-id="47:102" data-name="Frame">
-                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame21} />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                 </div>
               </div>
               <div className="content-stretch flex flex-[1_0_0] flex-col items-start min-h-px overflow-clip relative w-full" data-node-id="47:106" data-name="Body">
@@ -297,13 +262,13 @@ export default function LandingBereft() {
                     <div className="content-stretch flex flex-col gap-[16px] items-start overflow-clip relative shrink-0 w-full" data-node-id="47:112" data-name="AIMsg">
                       <div className="bg-[var(--color\/surface-2,#3d3f3b)] content-stretch flex gap-[6px] items-center overflow-clip pl-[10px] pr-[8px] py-[6px] relative rounded-[8px] shrink-0" data-node-id="47:113" data-name="Worked">
                         <div className="relative shrink-0 size-[13px]" data-node-id="47:114" data-name="Frame">
-                          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame22} />
+                          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                         </div>
                         <p className="[word-break:break-word] font-['Geist:Medium'] font-medium leading-[16px] relative shrink-0 text-[12.5px] text-[color:var(--color\/text-secondary,#cfdbd5)] whitespace-nowrap" data-node-id="47:116">
                           Worked across 3 apps · 12s
                         </p>
                         <div className="relative shrink-0 size-[14px]" data-node-id="47:117" data-name="Frame">
-                          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame23} />
+                          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                         </div>
                       </div>
                       <p className="[word-break:break-word] font-['Geist:Regular'] font-normal leading-[25px] min-w-full relative shrink-0 text-[15px] text-[color:var(--color\/text-primary,#e8eddf)] w-[min-content]" data-node-id="47:119">
@@ -316,7 +281,7 @@ export default function LandingBereft() {
                       </div>
                       <div className="content-stretch flex gap-[10px] items-start overflow-clip relative shrink-0 w-full" data-node-id="47:122" data-name="Frame">
                         <div className="h-[24px] relative shrink-0 w-[5px]" data-node-id="47:123" data-name="Frame">
-                          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame24} />
+                          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                         </div>
                         <p className="[word-break:break-word] flex-[1_0_0] font-['Geist:Regular'] font-normal leading-[0] min-w-px relative text-[15px] text-[color:var(--color\/text-secondary,#cfdbd5)]" data-node-id="47:125">
                           <span className="font-['Geist:SemiBold'] font-semibold leading-[24px] text-[#e8eddf]">{`Slack — `}</span>
@@ -325,7 +290,7 @@ export default function LandingBereft() {
                       </div>
                       <div className="content-stretch flex gap-[10px] items-start overflow-clip relative shrink-0 w-full" data-node-id="47:126" data-name="Frame">
                         <div className="h-[24px] relative shrink-0 w-[5px]" data-node-id="47:127" data-name="Frame">
-                          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame24} />
+                          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                         </div>
                         <p className="[word-break:break-word] flex-[1_0_0] font-['Geist:Regular'] font-normal leading-[0] min-w-px relative text-[15px] text-[color:var(--color\/text-secondary,#cfdbd5)]" data-node-id="47:129">
                           <span className="font-['Geist:SemiBold'] font-semibold leading-[24px] text-[#e8eddf]">{`Gmail — `}</span>
@@ -334,7 +299,7 @@ export default function LandingBereft() {
                       </div>
                       <div className="content-stretch flex gap-[10px] items-start overflow-clip relative shrink-0 w-full" data-node-id="47:130" data-name="Frame">
                         <div className="h-[24px] relative shrink-0 w-[5px]" data-node-id="47:131" data-name="Frame">
-                          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame24} />
+                          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                         </div>
                         <p className="[word-break:break-word] flex-[1_0_0] font-['Geist:Regular'] font-normal leading-[0] min-w-px relative text-[15px] text-[color:var(--color\/text-secondary,#cfdbd5)]" data-node-id="47:133">
                           <span className="font-['Geist:SemiBold'] font-semibold leading-[24px] text-[#e8eddf]">{`Notion — `}</span>
@@ -386,12 +351,12 @@ export default function LandingBereft() {
                     <div className="content-stretch flex gap-[4px] items-center overflow-clip relative shrink-0 w-full" data-node-id="47:149" data-name="Frame">
                       <div className="content-stretch flex h-[30px] items-center justify-center overflow-clip relative rounded-[9px] shrink-0" data-node-id="47:150" data-name="Frame">
                         <div className="relative shrink-0 size-[18px]" data-node-id="47:151" data-name="Frame">
-                          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame25} />
+                          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                         </div>
                       </div>
                       <div className="content-stretch flex h-[30px] items-center justify-center overflow-clip relative rounded-[9px] shrink-0" data-node-id="47:153" data-name="Frame">
                         <div className="relative shrink-0 size-[18px]" data-node-id="47:154" data-name="Frame">
-                          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame26} />
+                          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                         </div>
                       </div>
                       <div className="flex-[1_0_0] h-[10px] min-w-px relative" data-node-id="47:157" data-name="Frame" />
@@ -400,12 +365,12 @@ export default function LandingBereft() {
                           Agent · Pro
                         </p>
                         <div className="relative shrink-0 size-[14px]" data-node-id="47:160" data-name="Frame">
-                          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame23} />
+                          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                         </div>
                       </div>
                       <div className="content-stretch flex h-[30px] items-center justify-center overflow-clip relative rounded-[9px] shrink-0" data-node-id="47:162" data-name="Frame">
                         <div className="relative shrink-0 size-[18px]" data-node-id="47:163" data-name="Frame">
-                          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame27} />
+                          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                         </div>
                       </div>
                     </div>
@@ -605,7 +570,7 @@ export default function LandingBereft() {
             Start for free
           </p>
           <div className="relative shrink-0 size-[18px]" data-node-id="41:4" data-name="Frame">
-            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
           </div>
         </Link>
       </div>
