@@ -1,278 +1,377 @@
 "use client";
-import { useState } from "react";
-import styles from "./Calendar.module.css";
+import { useState, useCallback, useMemo } from "react";
+import moment from "moment";
+import { Calendar, momentLocalizer } from "react-big-calendar";
+import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop";
+import "react-big-calendar/lib/css/react-big-calendar.css";
+import "react-big-calendar/lib/addons/dragAndDrop/styles.css";
+import "./calendar-custom.css";
 
-const MOCK_EVENTS = [
-  { id: 1, title: "Team Standup", dayOffset: 0, startHour: 9, startMinute: 0, durationMinutes: 30, attendees: 5, type: "internal", location: "Zoom" },
-  { id: 2, title: "Acme Renewal Review", dayOffset: 0, startHour: 11, startMinute: 0, durationMinutes: 60, attendees: 3, type: "external", location: "Google Meet" },
-  { id: 3, title: "1:1 with Sarah Chen", dayOffset: 0, startHour: 14, startMinute: 0, durationMinutes: 30, attendees: 2, type: "internal", location: "Zoom" },
-  { id: 4, title: "Product Demo for Investors", dayOffset: 1, startHour: 10, startMinute: 0, durationMinutes: 90, attendees: 4, type: "external", location: "Zoom" },
-  { id: 5, title: "Focus Time", dayOffset: 1, startHour: 13, startMinute: 0, durationMinutes: 120, attendees: 1, type: "focus", location: "No location" },
-  { id: 6, title: "Design Review", dayOffset: 2, startHour: 9, startMinute: 30, durationMinutes: 60, attendees: 6, type: "internal", location: "Conference Room A" },
-  { id: 7, title: "Hiring Committee", dayOffset: 3, startHour: 15, startMinute: 0, durationMinutes: 60, attendees: 4, type: "internal", location: "Zoom" },
-  { id: 8, title: "Board Meeting Prep", dayOffset: 4, startHour: 10, startMinute: 0, durationMinutes: 120, attendees: 3, type: "internal", location: "Zoom" },
+const localizer = momentLocalizer(moment);
+const DnDCalendar = withDragAndDrop(Calendar);
+
+const INITIAL_EVENTS = [
+  { id: '1', title: "Reading a magazine", start: new Date(new Date().setHours(0, 0, 0, 0)), end: new Date(new Date().setHours(1, 0, 0, 0)), type: "focus" },
+  { id: '2', title: "Talking about men", start: new Date(new Date().setHours(0, 0, 0, 0)), end: new Date(new Date().setHours(0, 30, 0, 0)), type: "meeting" },
+  { id: '3', title: "A. G. Cook - Silver Thread Golden Needle", start: new Date(new Date().setHours(20, 0, 0, 0)), end: new Date(new Date().setHours(21, 0, 0, 0)), type: "spotify" },
+  { id: '4', title: "Yoga", start: new Date(new Date().setHours(8, 0, 0, 0)), end: new Date(new Date().setHours(9, 0, 0, 0)), type: "ai" }
 ];
 
-const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-const HOURS = Array.from({ length: 13 }, (_, i) => i + 8); // 8 AM to 8 PM
-
 export default function CalendarPage() {
+  const [events, setEvents] = useState(INITIAL_EVENTS);
   const [view, setView] = useState("week");
-  const [selectedEvent, setSelectedEvent] = useState(null);
+  const [date, setDate] = useState(new Date());
+  
+  // Drag and drop state for outside tasks
+  const [draggedEvent, setDraggedEvent] = useState(null);
 
-  // Quick date logic for MVP (always shows current week based on today)
-  const today = new Date();
-  const currentDayOfWeek = today.getDay() || 7; // 1-7, where 1 is Monday
-  const mondayDate = new Date(today);
-  mondayDate.setDate(today.getDate() - currentDayOfWeek + 1);
+  // Dynamic Sidebar State
+  const [inboxTasks, setInboxTasks] = useState([
+    { id: 'i1', title: 'To be upgraded', type: 'task', list: 'inbox' },
+    { id: 'i2', title: 'Make friends', type: 'task', list: 'inbox' },
+    { id: 'i3', title: 'Wake up!', type: 'task', list: 'inbox' },
+  ]);
+  const [todayTasks, setTodayTasks] = useState([
+    { id: 't1', title: 'Make friends', type: 'meeting', list: 'today' },
+    { id: 't2', title: 'Wake up!', type: 'focus', list: 'today' },
+    { id: 't3', title: 'To be upgraded', type: 'task', list: 'today' },
+  ]);
+  const [noDateTasks, setNoDateTasks] = useState([
+    { id: 'n1', title: 'Being so charming', type: 'task', list: 'noDate' },
+    { id: 'n2', title: 'Move in', type: 'task', list: 'noDate' }
+  ]);
 
-  const getWeekDays = () => {
-    return DAYS.map((dayName, i) => {
-      const d = new Date(mondayDate);
-      d.setDate(mondayDate.getDate() + i);
-      const isToday = d.toDateString() === today.toDateString();
-      return {
-        name: dayName,
-        date: d.getDate(),
-        isToday,
-        index: i
-      };
-    });
+  const addTask = (listName) => {
+    const title = window.prompt("New Task Name:");
+    if (!title) return;
+    const newTask = { id: Math.random().toString(), title, type: 'task', list: listName };
+    if (listName === 'inbox') setInboxTasks(prev => [...prev, newTask]);
+    else if (listName === 'today') setTodayTasks(prev => [...prev, newTask]);
+    else if (listName === 'noDate') setNoDateTasks(prev => [...prev, newTask]);
   };
 
-  const weekDays = getWeekDays();
+  const removeTaskFromList = (task) => {
+    if (task.list === 'inbox') setInboxTasks(prev => prev.filter(t => t.id !== task.id));
+    else if (task.list === 'today') setTodayTasks(prev => prev.filter(t => t.id !== task.id));
+    else if (task.list === 'noDate') setNoDateTasks(prev => prev.filter(t => t.id !== task.id));
+  };
 
-  const getEventStyle = (event) => {
-    // Calculate position
-    // Base hour is 8 AM (index 0)
-    const startOffsetMinutes = ((event.startHour - 8) * 60) + event.startMinute;
-    const topPx = (startOffsetMinutes / 60) * 60; // 60px per hour
-    const heightPx = (event.durationMinutes / 60) * 60;
+  const handleSelectSlot = ({ start, end }) => {
+    const title = window.prompt("New Event Title");
+    if (title) {
+      setEvents(prev => [...prev, { id: Math.random().toString(), title, start, end, type: 'manual' }]);
+    }
+  };
+
+  const handleSelectEvent = (event) => {
+    if (window.confirm(`Delete event '${event.title}'?`)) {
+      setEvents(prev => prev.filter(e => e.id !== event.id));
+    }
+  };
+
+  const moveEvent = useCallback(
+    ({ event, start, end, isAllDay: droppedOnAllDaySlot = false }) => {
+      const { allDay } = event;
+      if (!allDay && droppedOnAllDaySlot) {
+        event.allDay = true;
+      }
+      setEvents((prev) => {
+        const existing = prev.find((ev) => ev.id === event.id);
+        const filtered = prev.filter((ev) => ev.id !== event.id);
+        return [...filtered, { ...existing, start, end, allDay: event.allDay }];
+      });
+    },
+    [setEvents]
+  );
+
+  const resizeEvent = useCallback(
+    ({ event, start, end }) => {
+      setEvents((prev) => {
+        const existing = prev.find((ev) => ev.id === event.id);
+        const filtered = prev.filter((ev) => ev.id !== event.id);
+        return [...filtered, { ...existing, start, end }];
+      });
+    },
+    [setEvents]
+  );
+
+  const newEvent = useCallback(
+    (event) => {
+      setEvents((prev) => {
+        return [...prev, { ...event, id: Math.random().toString() }];
+      });
+    },
+    [setEvents]
+  );
+
+  const onDropFromOutside = useCallback(
+    ({ start, end, allDay: isAllDay }) => {
+      if (draggedEvent === null) return;
+      
+      let eventStart = start;
+      let eventEnd = end;
+      
+      if (!end) {
+        eventEnd = new Date(start.getTime() + 60 * 60 * 1000); // 1 hr default
+      }
+
+      const event = {
+        title: draggedEvent.title,
+        type: draggedEvent.type || 'task',
+        start: eventStart,
+        end: eventEnd,
+        id: Math.random().toString()
+      };
+      
+      newEvent(event);
+      removeTaskFromList(draggedEvent);
+      setDraggedEvent(null);
+    },
+    [draggedEvent, newEvent]
+  );
+
+  const handleDragStartOutside = (task) => {
+    setDraggedEvent(task);
+  };
+
+  const dragFromOutsideItem = useCallback(() => {
+    return draggedEvent;
+  }, [draggedEvent]);
+
+  // CUSTOM HEADER (Sun 7, Mon 8... Fri 12 red circle)
+  const CustomHeader = ({ date }) => {
+    const isToday = moment().isSame(date, 'day');
+    const dayName = moment(date).format('ddd'); // Sun, Mon, Tue
+    const dayNum = moment(date).format('D'); // 7, 8, 9
     
-    // Determine column
-    // For MVP, if today is Wed, dayOffset 0 is Wed
-    const targetDayIndex = (currentDayOfWeek - 1 + event.dayOffset) % 7;
+    return (
+      <div className="flex items-center justify-center gap-1.5 font-medium text-[13px] py-1">
+        <span className={isToday ? "text-[#333]" : "text-[#999]"}>{dayName}</span>
+        <span className={isToday ? "bg-[#f43f5e] text-white w-6 h-6 flex items-center justify-center rounded-full shadow-sm" : "text-[#999]"}>
+          {dayNum}
+        </span>
+      </div>
+    );
+  };
+
+  const CustomEvent = ({ event }) => {
+    let bgColor = "#e0f2fe"; // default light blue
+    let textColor = "#0369a1";
+    let borderLeft = "3px solid #0ea5e9";
     
-    let bgColor = "rgba(99, 102, 241, 0.15)";
-    let borderColor = "#6366f1";
-    
-    if (event.type === "external") {
-      bgColor = "rgba(16, 185, 129, 0.15)";
-      borderColor = "#10b981";
-    } else if (event.type === "focus") {
-      bgColor = "rgba(168, 85, 247, 0.15)";
-      borderColor = "#a855f7";
+    if (event.type === 'meeting') {
+      bgColor = "#f3e8ff"; // light purple to match image
+      textColor = "#9333ea";
+      borderLeft = "3px solid #c084fc";
+    } else if (event.type === 'focus') {
+      bgColor = "#cffafe"; // very light cyan
+      textColor = "#0e7490";
+      borderLeft = "3px solid #06b6d4";
+    } else if (event.type === 'ai') {
+      bgColor = "#dcfce7";
+      textColor = "#15803d";
+      borderLeft = "3px solid #22c55e";
+    } else if (event.type === 'task') {
+      bgColor = "#f3f4f6"; // light gray
+      textColor = "#374151";
+      borderLeft = "3px solid #6b7280";
+    } else if (event.type === 'spotify') {
+      bgColor = "#22c55e"; // spotify green
+      textColor = "#fff";
+      borderLeft = "3px solid #16a34a";
     }
 
-    return {
-      top: `${topPx + 1}px`,
-      height: `${heightPx - 2}px`,
-      backgroundColor: bgColor,
-      borderLeft: `3px solid ${borderColor}`,
-      gridColumn: targetDayIndex + 2 // +1 for time column, +1 for 1-based CSS grid
-    };
-  };
+    const [hover, setHover] = useState(false);
 
-  const formatTime = (h, m) => {
-    const ampm = h >= 12 ? 'PM' : 'AM';
-    const displayH = h > 12 ? h - 12 : h;
-    const displayM = m === 0 ? '00' : m.toString();
-    return `${displayH}:${displayM} ${ampm}`;
+    return (
+      <div 
+        className="h-full w-full rounded-[4px] px-2 py-1 text-xs font-medium truncate flex flex-col justify-start relative transition-all duration-200 hover:brightness-95" 
+        style={{ backgroundColor: bgColor, color: textColor, borderLeft }}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+      >
+        <div className="flex justify-between items-start w-full">
+          <span className="truncate">{event.title}</span>
+          {event.type === 'focus' && <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" className="opacity-50 shrink-0 ml-1 mt-0.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>}
+        </div>
+        
+        {/* Subtle time for taller events */}
+        <div className="text-[10px] opacity-70 mt-0.5">
+          {moment(event.start).format('h A')}
+        </div>
+
+        {/* Easter Egg Spotify Hover Card */}
+        {event.type === 'spotify' && hover && (
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 bg-[#282828] text-white p-2 rounded-lg shadow-xl w-[280px] flex gap-3 items-center" style={{ animation: 'fade-in 0.2s ease-out' }}>
+            <div className="w-12 h-12 bg-black rounded shrink-0 flex items-center justify-center">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="#1db954"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.69 14.4c-.18.3-.57.4-.87.21-2.38-1.46-5.38-1.79-8.91-.98-.34.08-.68-.13-.76-.47-.08-.34.13-.68.47-.76 3.86-.88 7.18-.5 9.85 1.14.3.18.4.57.22.86zm1.3-3.15c-.23.37-.7.49-1.07.26-2.73-1.68-6.93-2.18-10.46-1.19-.42.12-.86-.13-.98-.55-.12-.42.13-.86.55-.98 4.04-1.14 8.71-.57 11.83 1.35.37.23.49.7.26 1.07zm.13-3.32C14.7 7.9 9.8 7.71 5.72 8.94c-.5.15-1.02-.13-1.17-.63-.15-.5.13-1.02.63-1.17 4.74-1.43 10.29-1.2 14.3 1.18.45.27.6.86.33 1.31-.27.45-.86.6-1.31.33z"/></svg>
+            </div>
+            <div className="flex flex-col truncate">
+              <span className="font-semibold text-sm truncate">{event.title}</span>
+              <span className="text-xs text-[#b3b3b3]">Play on Spotify</span>
+            </div>
+          </div>
+        )}
+      </div>
+    );
   };
 
   return (
-    <div className="flex flex-col h-full w-full overflow-hidden bg-[var(--color\/canvas,#242423)] relative">
-      {/* Top Bar */}
-      <div className="border-[var(--color\/border,#40403e)] border-b border-solid content-stretch flex gap-[8px] items-center overflow-clip px-[20px] py-[12px] relative shrink-0 w-full z-10">
-        <div className="flex items-center gap-[8px] mr-[16px]">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#cfdbd5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 2v4"/><path d="M16 2v4"/></svg>
-          <p className="[word-break:break-word] font-['Geist:Medium'] font-medium leading-[normal] relative shrink-0 text-[14px] text-[color:var(--color\/text-primary,#e8eddf)] whitespace-nowrap">
-            Calendar
-          </p>
-        </div>
-        
-        {/* Date Nav */}
-        <div className="flex items-center gap-[4px] ml-[8px]">
-          <button className="w-[28px] h-[28px] flex items-center justify-center rounded-[6px] hover:bg-[var(--color\/surface-2,#3d3f3b)] transition-colors text-[#cfdbd5] cursor-pointer border border-[var(--color\/border,#40403e)]">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-          </button>
-          <button className="px-[12px] h-[28px] flex items-center justify-center rounded-[6px] hover:bg-[var(--color\/surface-2,#3d3f3b)] transition-colors text-[#cfdbd5] cursor-pointer text-[12.5px] font-['Geist:Medium'] font-medium border border-[var(--color\/border,#40403e)]">
-            Today
-          </button>
-          <button className="w-[28px] h-[28px] flex items-center justify-center rounded-[6px] hover:bg-[var(--color\/surface-2,#3d3f3b)] transition-colors text-[#cfdbd5] cursor-pointer border border-[var(--color\/border,#40403e)]">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-          </button>
-          <span className="ml-[12px] text-[14px] font-['Geist:Medium'] font-medium text-[#e8eddf]">
-            {today.toLocaleString('default', { month: 'long' })} {today.getFullYear()}
-          </span>
+    <div className="flex w-full h-full bg-[#f9f9f9] font-['Inter',sans-serif]">
+      {/* Secondary Sidebar */}
+      <div className="w-[280px] border-r border-[#ececec] flex flex-col bg-[#fdfdfd] pt-4">
+        <div className="flex items-center gap-4 px-4 mb-6">
+          <button className="bg-[#e5e5e5] text-[#333] px-2 py-1 rounded-md text-xs font-medium">All <span className="opacity-50">5</span></button>
+          <button className="text-[#666] text-xs font-medium hover:text-[#333]">Inbox <span className="opacity-50">3</span></button>
+          <button className="text-[#666] text-xs font-medium hover:text-[#333]">2 more</button>
+          <div className="flex-1" />
+          <button className="text-[#666] hover:text-[#333]"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14"/><path d="M12 5v14"/></svg></button>
         </div>
 
-        <div className="flex-1" />
-        
-        {/* View Toggle */}
-        <div className="bg-[var(--color\/surface,#333533)] border border-[var(--color\/border,#40403e)] rounded-[8px] p-[3px] inline-flex">
-          {["Day", "Week", "Month"].map(v => (
-            <button 
-              key={v}
-              onClick={() => setView(v.toLowerCase())}
-              className={`px-[12px] py-[4px] rounded-[5px] text-[12px] font-['Geist:Medium'] font-medium transition-colors ${view === v.toLowerCase() ? "bg-[var(--color\/surface-2,#3d3f3b)] text-[#e8eddf] shadow-sm" : "text-[#9fa8a2] hover:text-[#e8eddf]"}`}
-            >
-              {v}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <div className="flex-1 flex overflow-hidden">
-        {/* Main Calendar Area */}
-        <div className="flex-1 flex flex-col overflow-hidden relative">
-          
-          {/* Header row (Days) */}
-          <div className="flex border-b border-[var(--color\/border,#40403e)] bg-[var(--color\/canvas,#242423)] z-10 shrink-0">
-            <div className="w-[60px] border-r border-[var(--color\/border,#40403e)] shrink-0" />
-            <div className="flex-1 grid grid-cols-7">
-              {weekDays.map(day => (
-                <div key={day.name} className={`flex flex-col items-center justify-center py-[12px] border-r border-[var(--color\/border,#40403e)] last:border-r-0 ${day.isToday ? 'bg-[rgba(245,213,92,0.03)]' : ''}`}>
-                  <span className={`text-[11px] font-['Geist:Medium'] font-medium uppercase tracking-wider ${day.isToday ? 'text-[#f5cb5c]' : 'text-[#9fa8a2]'}`}>{day.name}</span>
-                  <div className={`mt-[4px] w-[32px] h-[32px] flex items-center justify-center rounded-full text-[16px] font-['Geist:Regular'] font-normal ${day.isToday ? "bg-[#f5cb5c] text-[#242423] font-['Geist:Medium']" : "text-[#e8eddf]"}`}>
-                    {day.date}
+        <div className="flex-1 overflow-y-auto px-2 space-y-6">
+          {/* Inbox section */}
+          <div>
+            <div className="flex items-center justify-between mb-2 px-2 group">
+              <div className="flex items-center gap-2">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#666" strokeWidth="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                <h3 className="font-semibold text-sm text-[#333]">Inbox <span className="text-[#999] font-normal text-xs ml-1">{inboxTasks.length}</span></h3>
+              </div>
+              <div className="flex items-center gap-2 text-[#999] opacity-0 group-hover:opacity-100 transition-opacity">
+                <button onClick={() => addTask('inbox')} className="hover:text-[#333]"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14"/><path d="M12 5v14"/></svg></button>
+                <button className="hover:text-[#333]"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></button>
+              </div>
+            </div>
+            <div className="space-y-[2px]">
+              {inboxTasks.length === 0 && <p className="text-xs text-[#999] px-2 py-1">All clear! ✨</p>}
+              {inboxTasks.map((task) => (
+                <div 
+                  key={task.id} 
+                  draggable={true}
+                  onDragStart={() => handleDragStartOutside(task)}
+                  className="flex items-center justify-between p-2 hover:bg-[#f2f2f2] rounded-lg cursor-grab active:cursor-grabbing group transition-colors"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-4 h-4 rounded-full border-[1.5px] border-[#ccc] group-hover:border-[#999] transition-colors" />
+                    <span className="text-[13px] text-[#333]">{task.title}</span>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Grid Area */}
-          <div className="flex-1 overflow-y-auto relative">
-            <div className="flex relative" style={{ minHeight: `${HOURS.length * 60}px` }}>
-              {/* Time column */}
-              <div className="w-[60px] border-r border-[var(--color\/border,#40403e)] flex flex-col shrink-0 bg-[var(--color\/canvas,#242423)] relative z-10">
-                {HOURS.map(hour => (
-                  <div key={hour} className="h-[60px] relative">
-                    <span className="absolute top-[-8px] right-[8px] text-[11px] font-['Geist:Regular'] font-normal text-[#9fa8a2]">{hour > 12 ? hour - 12 : hour} {hour >= 12 ? 'PM' : 'AM'}</span>
+          {/* Today section */}
+          <div>
+            <div className="flex items-center justify-between mb-2 px-2 group">
+              <div className="flex items-center gap-2">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#666" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                <h3 className="font-semibold text-sm text-[#333]">Today <span className="text-[#999] font-normal text-xs ml-1">{todayTasks.length}</span></h3>
+              </div>
+              <div className="flex items-center gap-2 text-[#999] opacity-0 group-hover:opacity-100 transition-opacity">
+                <button onClick={() => addTask('today')} className="hover:text-[#333]"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14"/><path d="M12 5v14"/></svg></button>
+                <button className="hover:text-[#333]"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></button>
+              </div>
+            </div>
+            <div className="space-y-[2px]">
+              {todayTasks.length === 0 && <p className="text-xs text-[#999] px-2 py-1">Time to chill! ☕</p>}
+              {todayTasks.map((task) => (
+                <div 
+                  key={task.id}
+                  draggable={true}
+                  onDragStart={() => handleDragStartOutside(task)}
+                  className="flex items-center justify-between p-2 hover:bg-[#f2f2f2] rounded-lg cursor-grab active:cursor-grabbing group transition-colors"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-4 h-4 rounded-full border-[1.5px] border-[#ccc] group-hover:border-[#999] transition-colors" />
+                    <span className="text-[13px] text-[#333]">{task.title}</span>
                   </div>
-                ))}
-              </div>
-
-              {/* Day columns wrapper */}
-              <div className={styles.timeGrid}>
-                {/* Horizontal grid lines */}
-                <div className="col-start-1 col-end-8 row-start-1 h-full w-full absolute pointer-events-none">
-                  {HOURS.map(hour => (
-                    <div key={hour} className="h-[60px] border-b border-[var(--color\/border,#40403e)] w-full opacity-50" />
-                  ))}
                 </div>
-
-                {/* Vertical day columns lines */}
-                {weekDays.map((day, i) => (
-                  <div key={i} className={`col-start-${i+2} h-full border-r border-[var(--color\/border,#40403e)] last:border-r-0 ${day.isToday ? 'bg-[rgba(245,213,92,0.02)]' : ''}`} style={{ gridColumn: i + 1 }} />
-                ))}
-
-                {/* Events */}
-                {MOCK_EVENTS.map(event => {
-                  const style = getEventStyle(event);
-                  return (
-                    <div 
-                      key={event.id}
-                      onClick={() => setSelectedEvent(event)}
-                      className="absolute left-[2px] right-[2px] rounded-[6px] p-[6px] overflow-hidden cursor-pointer hover:brightness-110 transition-all z-20 shadow-sm"
-                      style={style}
-                    >
-                      <p className="font-['Geist:SemiBold'] font-semibold text-[11.5px] text-[#e8eddf] leading-[14px] mb-[2px] truncate">{event.title}</p>
-                      <p className="font-['Geist:Regular'] font-normal text-[10.5px] text-[#cfdbd5] opacity-80 truncate">
-                        {formatTime(event.startHour, event.startMinute)} - {formatTime(event.startHour + Math.floor((event.startMinute + event.durationMinutes)/60), (event.startMinute + event.durationMinutes)%60)}
-                      </p>
-                    </div>
-                  );
-                })}
-
-                {/* Current time indicator line (mock placement) */}
-                <div className="absolute left-0 right-0 h-[2px] bg-[#f5cb5c] z-30 pointer-events-none" style={{ top: '210px' }}>
-                  <div className="absolute left-[-4px] top-[-3px] w-[8px] h-[8px] rounded-full bg-[#f5cb5c]" />
-                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* No termination date section */}
+          <div>
+            <div className="flex items-center justify-between mb-2 px-2 mt-4 group">
+              <div className="flex items-center gap-2">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e85d04" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <h3 className="font-semibold text-sm text-[#333]">No termination date <span className="text-[#999] font-normal text-xs ml-1">{noDateTasks.length}</span></h3>
               </div>
+              <div className="flex items-center gap-2 text-[#999] opacity-0 group-hover:opacity-100 transition-opacity">
+                <button onClick={() => addTask('noDate')} className="hover:text-[#333]"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14"/><path d="M12 5v14"/></svg></button>
+                <button className="hover:text-[#333]"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></button>
+              </div>
+            </div>
+            <div className="space-y-[2px]">
+              {noDateTasks.map((task) => (
+                <div 
+                  key={task.id}
+                  draggable={true}
+                  onDragStart={() => handleDragStartOutside(task)}
+                  className="flex items-center justify-between p-2 hover:bg-[#f2f2f2] rounded-lg cursor-grab active:cursor-grabbing group transition-colors"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-4 h-4 rounded-full border-[1.5px] border-[#ccc] group-hover:border-[#999] transition-colors" />
+                    <span className="text-[13px] text-[#333]">{task.title}</span>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Detail Panel */}
-        {selectedEvent && (
-          <div className="w-[320px] border-l border-[var(--color\/border,#40403e)] bg-[var(--color\/surface,#333533)] flex flex-col z-20 relative">
-            <div className="p-[16px] flex justify-end absolute top-0 right-0 z-30">
-              <button onClick={() => setSelectedEvent(null)} className="text-[#9fa8a2] hover:text-[#e8eddf] transition-colors w-[28px] h-[28px] flex items-center justify-center rounded-[6px] hover:bg-[rgba(255,255,255,0.06)]">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-              </button>
-            </div>
-            
-            <div className="p-[24px] pt-[40px] flex-1 overflow-y-auto">
-              <div className="flex gap-[8px] mb-[16px]">
-                <div className={`w-[12px] h-[12px] rounded-full mt-[4px] shrink-0 ${
-                  selectedEvent.type === 'external' ? 'bg-[#10b981]' : 
-                  selectedEvent.type === 'focus' ? 'bg-[#a855f7]' : 'bg-[#6366f1]'
-                }`} />
-                <div>
-                  <h2 className="font-['Geist:SemiBold'] font-semibold text-[20px] text-[#e8eddf] mb-[6px] leading-tight">{selectedEvent.title}</h2>
-                  <p className="font-['Geist:Regular'] font-normal text-[14px] text-[#cfdbd5]">
-                    {formatTime(selectedEvent.startHour, selectedEvent.startMinute)} - {formatTime(selectedEvent.startHour + Math.floor((selectedEvent.startMinute + selectedEvent.durationMinutes)/60), (selectedEvent.startMinute + selectedEvent.durationMinutes)%60)}
-                  </p>
-                  <p className="font-['Geist:Regular'] font-normal text-[13px] text-[#9fa8a2] mt-[2px]">
-                    {weekDays[(currentDayOfWeek - 1 + selectedEvent.dayOffset) % 7]?.name}, {today.toLocaleString('default', { month: 'short' })} {weekDays[(currentDayOfWeek - 1 + selectedEvent.dayOffset) % 7]?.date}
-                  </p>
-                </div>
-              </div>
+      {/* Main Calendar Area */}
+      <div className="flex-1 flex flex-col h-full bg-white relative">
+        <div className="absolute top-4 left-4 z-10 flex gap-2">
+           <div className="bg-[#f0f0f0] rounded-md px-3 py-1.5 flex items-center gap-2 text-[13px] font-semibold text-[#333] shadow-sm">
+             {moment(date).format('MMM YYYY')} <span className="bg-white text-[#999] px-1 rounded text-[11px] font-medium">W{moment(date).week()}</span>
+             <div className="flex items-center gap-1 ml-2 border-l border-[#ddd] pl-2">
+               <button onClick={() => setDate(moment(date).subtract(1, 'week').toDate())} className="hover:text-black p-0.5 rounded hover:bg-[#e5e5e5]"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M15 18l-6-6 6-6"/></svg></button>
+               <button onClick={() => setDate(moment(date).add(1, 'week').toDate())} className="hover:text-black p-0.5 rounded hover:bg-[#e5e5e5]"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 18l6-6-6-6"/></svg></button>
+             </div>
+           </div>
+        </div>
 
-              <div className="flex gap-[8px] mb-[32px]">
-                <button className="flex-1 bg-[var(--color\/accent,#f5cb5c)] hover:bg-[#e3c456] transition-colors text-[var(--color\/on-accent,#242423)] font-['Geist:Medium'] font-medium text-[13px] py-[8px] rounded-[8px] flex justify-center items-center gap-[6px]">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15.5 15.5 4.5 4.5"/><path d="m21 16-5-5"/><path d="M21 21v-5"/><path d="M21 21h-5"/><path d="M15.5 8.5 20 4"/><path d="m16 3 5 5"/><path d="M21 3v5"/><path d="M21 3h-5"/><path d="m8.5 15.5-4.5 4.5"/><path d="m3 16 5-5"/><path d="M3 21v-5"/><path d="M3 21h5"/><path d="m8.5 8.5-4.5-4.5"/><path d="m8 3-5 5"/><path d="M3 3v5"/><path d="M3 3h5"/></svg>
-                  Join {selectedEvent.location.includes("Zoom") ? "Zoom" : "Meeting"}
-                </button>
-              </div>
+        <div className="absolute top-4 right-4 z-10 flex gap-2">
+           <div className="bg-white border border-[#eee] rounded-md px-3 py-1.5 flex items-center gap-2 text-[13px] font-medium text-[#333] shadow-sm">
+             <div className="flex -space-x-1">
+               <div className="w-3 h-3 rounded-full bg-[#0ea5e9]"></div>
+               <div className="w-3 h-3 rounded-full bg-[#f43f5e]"></div>
+             </div>
+             2 calendars
+           </div>
+           <button className="bg-white border border-[#eee] rounded-md px-3 py-1.5 text-[13px] font-medium text-[#333] shadow-sm hover:bg-[#f9f9f9]">Meet</button>
+           <button className="bg-white border border-[#eee] rounded-md px-3 py-1.5 text-[13px] font-medium text-[#333] shadow-sm hover:bg-[#f9f9f9]">Share</button>
+        </div>
 
-              <div className="space-y-[24px]">
-                <section>
-                  <h3 className="font-['Geist:Medium'] font-medium text-[13px] text-[#e8eddf] mb-[12px] flex items-center gap-[8px]">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9fa8a2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                    Location
-                  </h3>
-                  <p className="text-[13px] text-[#cfdbd5] ml-[24px]">{selectedEvent.location}</p>
-                </section>
-
-                <section>
-                  <h3 className="font-['Geist:Medium'] font-medium text-[13px] text-[#e8eddf] mb-[12px] flex items-center gap-[8px]">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9fa8a2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    Attendees ({selectedEvent.attendees})
-                  </h3>
-                  <div className="ml-[24px] flex -space-x-2">
-                    {Array.from({length: selectedEvent.attendees}).map((_, i) => (
-                      <div key={i} className="w-[32px] h-[32px] rounded-full bg-[var(--color\/surface-2,#3d3f3b)] border-2 border-[var(--color\/surface,#333533)] flex items-center justify-center text-[12px] text-[#cfdbd5] font-['Geist:Medium'] font-medium z-[10] shadow-sm relative" style={{ zIndex: 10 - i }}>
-                        {String.fromCharCode(65 + i)}
-                      </div>
-                    ))}
-                  </div>
-                </section>
-
-                <section>
-                  <h3 className="font-['Geist:Medium'] font-medium text-[13px] text-[#e8eddf] mb-[12px] flex items-center gap-[8px]">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9fa8a2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
-                    Description & Notes
-                  </h3>
-                  <div className="ml-[24px] space-y-[12px]">
-                    <div className="bg-[rgba(255,255,255,0.03)] border border-[var(--color\/border,#40403e)] rounded-[8px] p-[12px] flex items-center gap-[12px] cursor-pointer hover:border-[#4d4f4b] transition-colors">
-                      <div className="w-[32px] h-[32px] rounded-[6px] bg-[rgba(245,213,92,0.1)] text-[#f5cb5c] flex items-center justify-center">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
-                      </div>
-                      <div className="flex-1">
-                        <p className="font-['Geist:Medium'] font-medium text-[13px] text-[#e8eddf]">Meeting Notes</p>
-                        <p className="text-[11.5px] text-[#9fa8a2]">Auto-joins & records</p>
-                      </div>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9fa8a2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-                    </div>
-                  </div>
-                </section>
-              </div>
-            </div>
-          </div>
-        )}
+        {/* Calendar */}
+        <div className="flex-1 pt-14 pb-0 relative overflow-hidden custom-calendar-wrapper">
+          <DnDCalendar
+            localizer={localizer}
+            events={events}
+            startAccessor="start"
+            endAccessor="end"
+            view={view}
+            date={date}
+            onNavigate={setDate}
+            onView={setView}
+            selectable
+            resizable
+            onEventDrop={moveEvent}
+            onEventResize={resizeEvent}
+            onDropFromOutside={onDropFromOutside}
+            dragFromOutsideItem={dragFromOutsideItem}
+            onSelectSlot={handleSelectSlot}
+            onSelectEvent={handleSelectEvent}
+            components={{
+              event: CustomEvent,
+              header: CustomHeader
+            }}
+            toolbar={false}
+            step={30}
+            timeslots={2}
+          />
+        </div>
       </div>
     </div>
   );

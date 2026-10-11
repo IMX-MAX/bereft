@@ -13,11 +13,15 @@
     "@mistralai/mistralai": "^2.3.0",
     "@tailwindcss/postcss": "^4.1.11",
     "appwrite": "^18.1.1",
+    "cohere-ai": "^8.1.0",
     "composio-core": "^0.5.39",
+    "date-fns": "^4.4.0",
     "lucide-react": "^1.22.0",
+    "moment": "^2.31.0",
     "next": "^15.4.8",
     "node-appwrite": "^26.2.0",
     "react": "^19.1.2",
+    "react-big-calendar": "^1.20.0",
     "react-dom": "^19.1.2"
   },
   "devDependencies": {

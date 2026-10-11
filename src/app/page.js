@@ -42,7 +42,7 @@ export default function LandingBereft() {
             </p>
           </div>
           <div className="flex-[1_0_0] h-[10px] min-w-px relative" data-node-id="42:18" data-name="Frame" />
-          <Link href="/login" className="bg-[#f5cb5c] content-stretch flex items-center overflow-clip px-[20px] py-[10px] relative rounded-[999px] shadow-[0px_6px_20px_0px_rgba(245,203,92,0.35)] shrink-0" data-node-id="42:19" data-name="Frame">
+          <Link href="/calendar" className="bg-[#f5cb5c] content-stretch flex items-center overflow-clip px-[20px] py-[10px] relative rounded-[999px] shadow-[0px_6px_20px_0px_rgba(245,203,92,0.35)] shrink-0" data-node-id="42:19" data-name="Frame">
             <p className="[word-break:break-word] font-['Geist:Regular'] font-normal leading-[normal] relative shrink-0 text-[#242423] text-[14px] whitespace-nowrap" data-node-id="42:20">
               Get started
             </p>
@@ -61,7 +61,7 @@ export default function LandingBereft() {
           Connect all your tools in under 5 minutes and sit back as AI does the work for you.
         </p>
         <div className="content-stretch flex gap-[14px] items-center overflow-clip relative rounded-[14px] shrink-0" data-node-id="42:28" data-name="Frame">
-          <Link href="/login" className="bg-gradient-to-r content-stretch flex from-[#f5cb5c] gap-[8px] items-center overflow-clip px-[28px] py-[16px] relative rounded-[14px] shadow-[0px_8px_24px_0px_rgba(245,203,92,0.35)] shrink-0 to-[#f9db7a]" data-node-id="42:29" data-name="Frame">
+          <Link href="/calendar" className="bg-gradient-to-r content-stretch flex from-[#f5cb5c] gap-[8px] items-center overflow-clip px-[28px] py-[16px] relative rounded-[14px] shadow-[0px_8px_24px_0px_rgba(245,203,92,0.35)] shrink-0 to-[#f9db7a]" data-node-id="42:29" data-name="Frame">
             <p className="[word-break:break-word] font-['Geist:Regular'] font-normal leading-[normal] relative shrink-0 text-[#242423] text-[16px] whitespace-nowrap" data-node-id="42:30">
               Start for free
             </p>

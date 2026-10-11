@@ -1,59 +1,39 @@
-import { Mistral } from '@mistralai/mistralai';
-import { Composio } from 'composio-core';
+import { CohereClient } from 'cohere-ai';
 
 export async function POST(req) {
   try {
-    const { messages } = await req.json();
+    const { prompt, currentEvents } = await req.json();
 
-    if (!messages || !Array.isArray(messages)) {
-      return new Response(JSON.stringify({ error: 'Invalid messages array' }), { status: 400 });
-    }
-
-    const mistralApiKey = process.env.MISTRAL_API_KEY;
-    const composioApiKey = process.env.COMPOSIO_API_KEY;
-
-    // For the MVP, if API keys are missing, we'll return a simulated response
-    if (!mistralApiKey || !composioApiKey) {
-      console.warn("API keys not found. Returning simulated response.");
-      return new Response(JSON.stringify({
-        message: {
-          role: 'assistant',
-          content: "Done — I scanned your unread Slack, pulled context from Gmail and Notion, and drafted replies. Here's the rundown before anything sends.\n\n### What needs you\n- **Slack** — 4 threads need a reply. 2 are time-sensitive: the Acme renewal and the on-call handoff.\n- **Gmail** — drafted 3 responses, matched to each thread's tone and prior history.\n- **Notion** — logged the decisions from those threads into the Q3 planning doc.\n\n### Queued and ready\n1. **Send all 3 drafts** — reviewed for tone, nothing sends until you approve.\n2. **Snooze Acme** until the signed contract lands in Gmail.\n3. **Create 2 Linear tasks** from the on-call handoff action items."
-        }
-      }), { status: 200 });
-    }
-
-    // Initialize clients
-    const mistral = new Mistral({ apiKey: mistralApiKey });
-    const composio = new Composio({ apiKey: composioApiKey });
-
-    // 1. Get available tools from Composio
-    // Note: In a real app, you would filter tools based on connected apps or the user's specific context.
-    const tools = await composio.getTools();
-    
-    // Convert Composio tools to Mistral tool format (if necessary depending on SDK)
-    // The composio SDK might have a helper for this, but for now we assume they are compatible
-    // or we just send the user prompt to Mistral if we are just chatting.
-    
-    // 2. Call Mistral
-    const chatResponse = await mistral.chat.complete({
-      model: 'mistral-large-latest',
-      messages: messages,
-      // tools: tools, // Enable when ready to actually execute tools
+    const cohere = new CohereClient({
+      token: process.env.COHERE_API_KEY,
     });
 
-    const assistantMessage = chatResponse.choices[0].message;
+    const response = await cohere.chat({
+      message: `You are a calendar assistant. The user wants to add tasks or events to their calendar.
+Current events: ${JSON.stringify(currentEvents || [])}
+User request: ${prompt}
 
-    // 3. Handle Tool Calls (Simplified)
-    if (assistantMessage.toolCalls && assistantMessage.toolCalls.length > 0) {
-      // In a full implementation, you would iterate over toolCalls,
-      // execute them via composio, and send the results back to Mistral.
-      // For MVP, we'll just acknowledge them.
-      console.log("Tools called:", assistantMessage.toolCalls);
+Return ONLY a valid JSON array of new event objects with the following keys:
+- id: a unique string
+- title: string
+- start: ISO 8601 string representing the start time (assume current date is ${new Date().toISOString()})
+- end: ISO 8601 string representing the end time
+- type: string (e.g., 'meeting', 'focus', 'task')
+
+Do not include markdown blocks or any other text. Return just the JSON array.`,
+      model: 'command-r-plus',
+    });
+
+    let newEvents = [];
+    try {
+      const text = response.text.replace(/```json/g, '').replace(/```/g, '').trim();
+      newEvents = JSON.parse(text);
+    } catch (e) {
+      console.error("Failed to parse AI response as JSON", response.text);
+      return new Response(JSON.stringify({ error: 'AI did not return valid JSON', text: response.text }), { status: 500 });
     }
 
-    return new Response(JSON.stringify({ message: assistantMessage }), { status: 200 });
-    
+    return new Response(JSON.stringify({ events: newEvents }), { status: 200 });
   } catch (error) {
     console.error('Chat API Error:', error);
     return new Response(JSON.stringify({ error: error.message }), { status: 500 });

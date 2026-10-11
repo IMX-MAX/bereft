@@ -1,0 +1,100 @@
+/* Override react-big-calendar to match Craft / Amy UI */
+.custom-calendar-wrapper .rbc-calendar {
+  font-family: 'Inter', sans-serif;
+  color: #333;
+  background-color: #fafafa;
+}
+
+.custom-calendar-wrapper .rbc-header {
+  border-bottom: none;
+  font-weight: 500;
+  font-size: 11px;
+  color: #999;
+  padding: 12px 0;
+  text-align: center;
+  border-left: 1px solid #f0f0f0;
+}
+
+.custom-calendar-wrapper .rbc-header + .rbc-header {
+  border-left: 1px solid #f0f0f0;
+}
+
+.custom-calendar-wrapper .rbc-month-view,
+.custom-calendar-wrapper .rbc-time-view {
+  border: none;
+}
+
+.custom-calendar-wrapper .rbc-allday-cell {
+  display: none;
+}
+
+.custom-calendar-wrapper .rbc-time-header {
+  display: none; /* Hide top all-day header for cleaner look */
+}
+
+.custom-calendar-wrapper .rbc-time-content {
+  border-top: 1px solid #f0f0f0;
+}
+
+.custom-calendar-wrapper .rbc-time-gutter {
+  display: none; /* Hide time gutter to match Amy's ultra-clean look or keep it very subtle */
+}
+
+.custom-calendar-wrapper .rbc-timeslot-group {
+  border-bottom: 1px solid #f0f0f0;
+  min-height: 80px; /* Taller slots for a spacious feel */
+}
+
+.custom-calendar-wrapper .rbc-day-slot .rbc-time-slot {
+  border-top: none;
+}
+
+.custom-calendar-wrapper .rbc-day-bg {
+  border-left: 1px solid #f0f0f0;
+  background-color: #fff;
+}
+
+.custom-calendar-wrapper .rbc-day-bg + .rbc-day-bg {
+  border-left: 1px solid #f0f0f0;
+}
+
+/* Event Pills styling */
+.custom-calendar-wrapper .rbc-event {
+  background: transparent; /* Background applied in CustomEvent */
+  border: none;
+  padding: 0;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.custom-calendar-wrapper .rbc-event:focus {
+  outline: none;
+}
+
+.custom-calendar-wrapper .rbc-event-content {
+  height: 100%;
+}
+
+/* Red current time indicator */
+.custom-calendar-wrapper .rbc-current-time-indicator {
+  background-color: #f43f5e; /* rose-500 */
+  height: 2px;
+  z-index: 3;
+}
+
+.custom-calendar-wrapper .rbc-current-time-indicator::before {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: -3px;
+  width: 8px;
+  height: 8px;
+  background-color: #f43f5e;
+  border-radius: 50%;
+}
+
+/* Remove default event padding so custom pill fills slot */
+.custom-calendar-wrapper .rbc-event-label {
+  display: none;
+}
